@@ -4,6 +4,7 @@ import com.lyndsey.littlecreatures.little_creatures_backend.DTO.ChildRequestDTO;
 import com.lyndsey.littlecreatures.little_creatures_backend.DTO.ChildResponseDTO;
 import com.lyndsey.littlecreatures.little_creatures_backend.DTO.ParentRequestDTO;
 import com.lyndsey.littlecreatures.little_creatures_backend.DTO.ParentResponseDTO;
+import com.lyndsey.littlecreatures.little_creatures_backend.DTO.LoginRequestDTO;
 import com.lyndsey.littlecreatures.little_creatures_backend.model.Child;
 import com.lyndsey.littlecreatures.little_creatures_backend.model.Parent;
 import com.lyndsey.littlecreatures.little_creatures_backend.repository.ChildRepository;
@@ -11,12 +12,13 @@ import com.lyndsey.littlecreatures.little_creatures_backend.repository.ParentRep
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
 @RestController
 @RequestMapping("parent")
 public class ParentController {
@@ -80,8 +82,13 @@ public class ParentController {
         parentRepository.deleteById(parentId);
     }
 
-    @PostMapping("{parentId}/child")
-    public ChildResponseDTO createChild(@PathVariable int parentId, @Valid @RequestBody ChildRequestDTO dto) {
+    @PostMapping("child")
+    public ChildResponseDTO createChild(@Valid @RequestBody ChildRequestDTO dto, HttpSession session) {
+        Integer parentId = (Integer) session.getAttribute("parentId");
+        if (parentId == null) {
+            throw new RuntimeException("Parent not logged in");
+        }
+
         Parent parent = parentRepository.findById(parentId).orElseThrow();
         Child child = new Child(dto.getName(), dto.getAge(), dto.getStarCount(), dto.getCreatureChoice());
         parent.addChild(child);
@@ -99,8 +106,33 @@ public class ParentController {
         return response;
     }
 
-    @GetMapping("{parentId}/childList")
-    public List<ChildResponseDTO> getChildList(@PathVariable int parentId) {
+    @PostMapping("login")
+    public ParentResponseDTO login(@Valid @RequestBody LoginRequestDTO dto, HttpSession session) {
+        Parent parent = parentRepository.findByEmail(dto.getEmail())
+                .orElseThrow(() -> new RuntimeException("Invalid email or password"));
+
+        if (!parent.isMatchingPassword(dto.getPassword())) {
+            throw new RuntimeException("Invalid email or password");
+        }
+
+        session.setAttribute("parentId", parent.getParentId());
+
+        ParentResponseDTO response = new ParentResponseDTO();
+        response.setParentId(parent.getParentId());
+        response.setEmail(parent.getEmail());
+        response.setFirstName(parent.getFirstName());
+        response.setLastName(parent.getLastName());
+
+        return response;
+    }
+
+    @GetMapping("childList")
+    public List<ChildResponseDTO> getChildList(HttpSession session) {
+        Integer parentId = (Integer) session.getAttribute("parentId");
+        if (parentId == null) {
+            throw new RuntimeException("Parent not logged in");
+        }
+
         Parent parent = parentRepository.findById(parentId).orElseThrow();
         List<Child> childList = parent.getChildList();
         List<ChildResponseDTO> responseList = new ArrayList<>();
