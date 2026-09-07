@@ -1,0 +1,75 @@
+.main-games-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: 24px;
+  padding: 20px;
+}
+
+.game-buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 60px;
+}
+
+.games-title {
+  font-size: 60px;
+  color: var(--text-dark);
+}
+
+.game-button h2 {
+  font-size: 32px;
+  margin-bottom: 8px;
+  color: var(--text-dark);
+}
+
+.game-button p {
+  font-size: 24px;
+  margin-bottom: 8px;
+  color: var(--text-dark);
+}
+
+.feeling-friends h2 {
+  color: var(--orange);
+}
+
+.kind-creatures h2 {
+  color: var(--purple);
+}
+
+.game-button {
+  background: rgb(
+    from var(--bg-lavender) r g b / 0.7
+  ); /*Take the color from this variable, keep the Red, Green, and Blue parts the same, but set the transparency to 0.7...makes the button transparent*/
+  border: 4px solid var(--text-dark);
+  border-radius: 30px;
+  max-width: 400px;
+  display: block; /* needed for margin auto to work on links */
+  margin: 0 auto; /* centers horizontally */
+  padding: 12px 12px;
+  text-decoration: none;
+  text-align: center;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.game-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.game-button:active {
+  transform: scale(0.9);
+  transition: transform 0.1s ease;
+}
+
+@media (max-width: 480px) {
+  .games-title {
+    text-align: center;
+  }
+}

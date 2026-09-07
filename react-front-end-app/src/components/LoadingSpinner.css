@@ -1,0 +1,20 @@
+.spinner {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 8px solid var(--purple);
+  border-top: 8px solid var(--pink);
+  border-right: 8px solid var(--orange);
+  border-bottom: 8px solid var(--yellow);
+  animation: spin 1s linear infinite;
+  /*name duration timing iteration..... the browser continuously rotates the element from 0° to 360°, creating the spinning effect. */
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  } /*start state*/
+  to {
+    transform: rotate(360deg);
+  } /*end state...makes the spinner rotate 360 degrees*/
+}

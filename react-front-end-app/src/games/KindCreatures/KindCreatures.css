@@ -1,0 +1,113 @@
+.kind-creatures-container .game-title {
+  color: var(--purple);
+  font-family: nunito, sans-serif;
+  font-size: 50px;
+  background: rgb(
+    from var(--bg-lavender) r g b / 0.7
+  ); /*Take the color from this variable, keep the Red, Green, and Blue parts the same, but set the transparency to 0.7...makes the button transparent*/
+  border: 4px solid var(--text-dark);
+  border-radius: 30px;
+  max-width: 400px;
+  margin: 10px auto; /* centers horizontally */
+  padding: 12px 12px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.user-selection { /* This is the text bubble*/
+  background: rgb(from var(--purple) r g b / 0.8);
+  color: var(--bg-sky);
+  font-family: "Chewy", sans-serif;
+  padding: 20px;
+  max-width: 500px;
+  text-align: center;
+  border-radius: 24px;
+  width: fit-content;
+  margin: 0 auto 20px auto;
+  position: relative;  /* allows ::before and ::after to position relative to it */
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.user-selection::after {
+  /*this creates the first and second cirles*/
+  content: "";/*required for psuedo elements to appear*/
+  position: absolute;
+  /*positions them below the bubble*/
+  top: 100%;
+  margin-top: 20px;
+  left: 50%; /* starts at center */
+  transform: translateX(-50%);/* shifts the element back to the left by half its width*/
+  /*size of the medium circle*/
+  width: 14px;
+  height: 14px;
+  /* This pushes the medium circle 35px below the bubble */
+  margin-top: 35px;
+  background: rgb(from var(--purple) r g b / 0.8);
+  border-radius: 50%;
+  /* This 'box-shadow' creates the third, smallest circle */
+  /* It's shifted 8px right and 20px down, 12px wide (14 - 2)*/
+  box-shadow: 8px 20px 0 -2px rgb(from var(--purple) r g b / 0.8);
+}
+
+/* The largest circle connecting to the bubble */
+.user-selection::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  margin-top: 5px;
+  left: 50%;
+  width: 22px;
+  height: 22px;
+  background: rgb(from var(--purple) r g b / 0.8);
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 20px;
+}
+
+.option-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  justify-content: center;
+}
+
+.game-question {
+  color: var(--text-dark);
+  font-family: nunito, sans-serif;
+  font-size: 1.5rem;
+  margin: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+@media (max-width: 480px) {
+  .game-title {
+    margin-top: 30px;
+  }
+
+  .game-question {
+    margin-top: 30px;
+  }
+  .creature-image {
+    margin-top: 30px;
+  }
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+  }
+}

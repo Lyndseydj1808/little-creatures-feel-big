@@ -1,0 +1,127 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  background-image: url("../assets/images/lcfb-background-5.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.nav-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 16px;
+  padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 24px);
+}
+
+.nav-button {
+  font-size: clamp(1.4rem, 2vw, 2rem);
+  max-width: 200px;
+  text-decoration: none; /*removes the underline from the link*/
+  color: white;
+  border-radius: 16px;
+  padding: 12px 50px;
+  font-weight: 700;
+  display: flex; /* use flex so text can be centered */
+  align-items: center; /* centers vertically */
+  justify-content: center; /* centers horizontally */
+  border: 3px solid white;
+}
+
+.nav-button:hover {
+  background-color: var(--orange);
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.lets-play {
+  background-color: var(--pink);
+}
+
+.parent-dashboard {
+  background-color: var(--blue);
+}
+
+.about {
+  background-color: var(--green);
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  font-size: 16px;
+  color: var(--text-dark);
+  background: rgb(from var(--bg-lavender) r g b / 0.7);
+  border-radius: 8px;
+  padding: 8px;
+  margin-top: auto; /* pushes itself to the bottom */
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+footer p {
+  flex: 1; /* each p takes equal share of space */
+  text-align: center;
+}
+
+/* Hides the mobile image on desktop */
+.mobile-image {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .nav-buttons {
+    flex-direction: column;/*switches the nav buttons to vertical for mobile*/
+    align-items: center;
+    gap: 12px;
+  }
+
+  .nav-button {
+    font-size: 1.5rem;
+  }
+
+  .home-container {
+    background-image: none;/*doesn't display background image*/
+    padding-top: 50px;
+    justify-content: flex-start;
+    gap: 30px;
+    min-height: 100vh;
+    padding-bottom: 80px;
+  }
+
+  /* don't need this..you already have it above... */
+  .nav-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  footer {
+    position: fixed; /* sticks to bottom of viewport */
+    bottom: 0;
+    left: 0;
+  }
+
+  .mobile-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+  }
+
+  .mobile-image img {
+    width: 80%;
+    height: auto;
+  }
+}

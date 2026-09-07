@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+/*stores colors as variables to use for styling...access them using color: var(--purple)*/
+:root {
+  --purple: #b44fd4;
+  --pink: #e84fa0;
+  --teal: #2bbcd4;
+  --blue: #5b6fe8;
+  --yellow: #ffd93d;
+  --orange: #ff7043;
+  --green: #4dd97a;
+  --bubblegum: #ff85c2;
+  --bg-lavender: #f5eeff;
+  --bg-sky: #e0f9ff;
+  --text-dark: #3d2060;
+}
+
+body {
+  background: linear-gradient(
+    45deg,
+    var(--purple),
+    var(--blue),
+    var(--teal),
+    var(--green),
+    var(--yellow),
+    var(--orange),
+    var(--pink)
+  );
+  min-height: 100vh; /* grows with content */
+  background-attachment: fixed; /* stays in place while scrolling */
+  height: 100vh;
+  font-size: 16px;
+  font-family: nunito, sans-serif;
+  text-align: center;
+  color: var(--text-dark);
+  margin: 0;
+  padding: 0;
+  cursor: default;
+}
+
+h1 {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+}
+
+h2 {
+  font-size: clamp(1rem, 3vw, 2rem);
+}
+
+p {
+  font-size: clamp(0.875rem, 2vw, 1rem);
+}
+
+
