@@ -1,0 +1,112 @@
+.about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: 24px;
+  padding: 20px;
+}
+
+.about-description {
+  color: var(--text-dark);
+  font-size: 30px;
+  background: rgb(from var(--bg-lavender) r g b / 0.5);
+  border-radius: 12px;
+  max-width: 700px;
+}
+
+.about-dev {
+  color: var(--text-dark);
+  font-size: 20px;
+  background: rgb(from var(--bg-lavender) r g b / 0.5);
+  border-radius: 12px;
+  max-width: 700px;
+}
+
+.about-list {
+  list-style: none; /* removes default bullet */
+  padding: 0;
+  line-height: 2; /* spacing between items */
+  font-size: 18px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background: rgb(from var(--bg-lavender) r g b / 0.5);
+  border-radius: 12px;
+  padding: 8px;
+  max-width: 400px;
+}
+
+.profile-picture {
+  width: 150px;
+  height: auto;
+  border-radius: 30px;
+}
+
+.github-button {
+  background-color: var(--purple);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 16px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  display: inline-block;
+}
+
+.github-button:hover {
+  background-color: var(--pink);
+  cursor: pointer;
+  scale: 1.1;
+}
+
+.meet-the-creatures-container caption {
+  font-size: 40px;
+  background-color: rgb(from var(--teal) r g b / 0.7);
+  color: var(--bg-lavender);
+  text-align: center;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  padding: 10px;
+}
+
+.table-creature-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%; /* circular image */
+}
+
+table {
+  border-collapse: collapse; /* removes double borders */
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+th {
+  background-color: var(--purple);
+  color: white;
+  padding: 12px;
+  font-size: 30px;
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid var(--bg-lavender);
+  font-size: 30px;
+  color: var(--text-dark);
+  background-color: rgb(from var(--bg-lavender) r g b / 0.7);
+}
+
+@media (max-width: 480px) {
+
+  td, th {
+    font-size: 20px;
+    padding: 8px;
+  }
+  .table-creature-image {
+    width: 100px;
+    height: 100px;
+  }
+}
