@@ -12,6 +12,7 @@ import CreateChildAccount from "./parentPages/CreateChildAccount";
 import ChildAccounts from "./parentPages/ChildAccounts";
 import TimeLimit from "./parentPages/TimeLimit";
 import ChooseAnAccount from "./childPages/ChooseAnAccount";
+import Layout from './components/Layout.jsx'
 
 function App() {
   const [childName, setChildName] = useState("");
@@ -28,6 +29,8 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
+
+        <Route element={<Layout />}>
         <Route path="/parent-login" element={<ParentLogin />} />
         <Route path="/parent-create-account" element={<ParentCreateAccount />} />
         <Route path="/parent-dashboard" element={<ParentDashboard />} />
@@ -52,6 +55,7 @@ function App() {
           element={<KindCreatures childName={childName} />}
         />
         <Route path="/about" element={<About childName={childName} />} />
+        </Route>
       </Routes>
     </>
   );

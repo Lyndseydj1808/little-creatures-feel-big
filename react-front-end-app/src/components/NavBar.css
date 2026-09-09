@@ -8,8 +8,9 @@ nav {
 .nav-logo {
   height: 100px;
   width: auto;
-  border-radius: 20px;
-  padding-left: 5px;
+  border-radius: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
   padding-top: 5px;
 }
 
@@ -19,8 +20,8 @@ nav {
 }
 
 .nav-button {
-  font-size: clamp(1rem, 1.5vw, 2rem);
-  max-width: 300px;
+  font-size: clamp(.5rem, 1vw, 1.5rem);
+  max-width: 100px;
   max-height: 50px;
   text-decoration: none; /*removes the underline from the link*/
   color: white;
