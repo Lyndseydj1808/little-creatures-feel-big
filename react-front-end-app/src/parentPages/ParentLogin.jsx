@@ -3,7 +3,7 @@ import BackButton from "../components/BackButton";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { loginParent } from "../services/parentService";
-
+import NavBar from "../components/NavBar";
 import "./ParentLogin.css";
 
 export default function ParentLogin() {
@@ -20,7 +20,7 @@ export default function ParentLogin() {
     } else {
       try {
         await loginParent({ email, password });
-        navigate("/parent-dashboard")
+        navigate("/parent-dashboard");
       } catch (error) {
         console.error(error);
         setFeedback("⚠️ Login failed. Please try again.");
@@ -28,12 +28,12 @@ export default function ParentLogin() {
     }
   };
 
-  
-
   return (
-    <main className="parent-dashboard-container">
-      <section className="login-form-section">
-        {feedback && <div className="login-feedback">{feedback}</div>}
+    <>
+      <NavBar />
+      <main className="parent-dashboard-container">
+        <section className="login-form-section">
+          {feedback && <div className="login-feedback">{feedback}</div>}
           <div className="login">
             <h1>Please Login</h1>
             <form className="login-form" onSubmit={handleSubmit}>
@@ -62,8 +62,9 @@ export default function ParentLogin() {
               Create An Account
             </Link>
           </div>
-      </section>
-      <BackButton />
-    </main>
+        </section>
+        <BackButton />
+      </main>
+    </>
   );
 }
