@@ -23,7 +23,8 @@
 
 .nav-button {
   font-size: clamp(1.4rem, 2vw, 2rem);
-  max-width: 200px;
+  max-width: 300px;
+  max-height: 200px;
   text-decoration: none; /*removes the underline from the link*/
   color: white;
   border-radius: 16px;
