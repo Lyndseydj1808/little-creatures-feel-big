@@ -4,6 +4,7 @@ import HomeButton from "../components/HomeButton";
 import ParentDashboardButton from "../components/ParentDashboardButton";
 import { createChild } from "../services/childService";
 import { Link } from "react-router-dom";
+import NavBar from "../components/NavBar";
 
 export default function CreateChildAccount() {
   const [formSubmit, setFormSubmit] = useState(false);

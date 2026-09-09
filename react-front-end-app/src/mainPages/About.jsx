@@ -13,12 +13,12 @@ export default function About({ childName }) {
   return (
     <div className="about-container">
       <header className="main-header">
-      <h1 className="about-the-game">About the game!</h1>
-      <p className="about-description">
-        {childName ? `Hi ${childName}!` : "Hi friend!"} Welcome to Little
-        Creatures Feel Big! We hope you have so much fun playing with us! We
-        love learning about our big feelings in a fun way!{" "}
-      </p>
+        <h1 className="about-the-game">About the game!</h1>
+        <p className="about-description">
+          {childName ? `Hi ${childName}!` : "Hi friend!"} Welcome to Little
+          Creatures Feel Big! We hope you have so much fun playing with us! We
+          love learning about our big feelings in a fun way!{" "}
+        </p>
       </header>
       <ul className="about-list">
         <li>
@@ -44,63 +44,63 @@ export default function About({ childName }) {
               <th>Name</th>
             </tr>
           </thead>
-        <tbody>
-          <tr>
-            <td>
-              <img
-                src={unicornHappy}
-                className="table-creature-image"
-                alt="Unicorn image created using AI"
-              />
-            </td>
-            <td>Unicorn</td>
-            <td>Yardly</td>
-          </tr>
-          <tr>
-            <td>
-              <img
-                src={peacockHappy}
-                className="table-creature-image"
-                alt="Peacock image created using AI"
-              />
-            </td>
-            <td>Peacock</td>
-            <td>Perry</td>
-          </tr>
-          <tr>
-            <td>
-              <img
-                src={llamaHappy}
-                className="table-creature-image"
-                alt="Llama image created using AI"
-              />
-            </td>
-            <td>Llama</td>
-            <td>Larry</td>
-          </tr>
-          <tr>
-            <td>
-              <img
-                src={dragonHappy}
-                className="table-creature-image"
-                alt="Dragon image created using AI"
-              />
-            </td>
-            <td>Dragon</td>
-            <td>Danny</td>
-          </tr>
-          <tr>
-            <td>
-              <img
-                src={phoenixHappy}
-                className="table-creature-image"
-                alt="Phoenix image created using AI"
-              />
-            </td>
-            <td>Phoenix</td>
-            <td>Finnleigh</td>
-          </tr>
-        </tbody>
+          <tbody>
+            <tr>
+              <td>
+                <img
+                  src={unicornHappy}
+                  className="table-creature-image"
+                  alt="Unicorn image created using AI"
+                />
+              </td>
+              <td>Unicorn</td>
+              <td>Yardly</td>
+            </tr>
+            <tr>
+              <td>
+                <img
+                  src={peacockHappy}
+                  className="table-creature-image"
+                  alt="Peacock image created using AI"
+                />
+              </td>
+              <td>Peacock</td>
+              <td>Perry</td>
+            </tr>
+            <tr>
+              <td>
+                <img
+                  src={llamaHappy}
+                  className="table-creature-image"
+                  alt="Llama image created using AI"
+                />
+              </td>
+              <td>Llama</td>
+              <td>Larry</td>
+            </tr>
+            <tr>
+              <td>
+                <img
+                  src={dragonHappy}
+                  className="table-creature-image"
+                  alt="Dragon image created using AI"
+                />
+              </td>
+              <td>Dragon</td>
+              <td>Danny</td>
+            </tr>
+            <tr>
+              <td>
+                <img
+                  src={phoenixHappy}
+                  className="table-creature-image"
+                  alt="Phoenix image created using AI"
+                />
+              </td>
+              <td>Phoenix</td>
+              <td>Finnleigh</td>
+            </tr>
+          </tbody>
         </table>
       </div>
       <h1 className="about-the-dev">About the developer!</h1>
@@ -132,29 +132,32 @@ export default function About({ childName }) {
           GitHub
         </a>
         <a
-        href="https://www.linkedin.com/in/lyndsey-clarkson/"
-        target="_blank"
-        rel="noreferrer"
-        className="linkedIn-button"
+          href="https://www.linkedin.com/in/lyndsey-clarkson/"
+          target="_blank"
+          rel="noreferrer"
+          className="linkedIn-button"
         >
           LinkedIn
         </a>
         <a
-        href="https://lyndseydj1808.github.io/Lyndsey-Clarkson-Portfolio/"
-        target="_blank"
-        rel="noreferrer"
-        className="portfolio-button"
+          href="https://lyndseydj1808.github.io/Lyndsey-Clarkson-Portfolio/"
+          target="_blank"
+          rel="noreferrer"
+          className="portfolio-button"
         >
           Portfolio
         </a>
         <div className="contact">
           <h2 className="contact-header">Contact Me!</h2>
-          <p>If you have any questions about the game, this project, or me please email!</p>
+          <p>
+            If you have any questions about the game, this project, or me please
+            email!
+          </p>
           <a
-          href="mailto: lyndseydj1808@gmail.com"
-          target="_blank"
-          rel="noreferrer"
-          className="email"
+            href="mailto: lyndseydj1808@gmail.com"
+            target="_blank"
+            rel="noreferrer"
+            className="email"
           >
             Email
           </a>
