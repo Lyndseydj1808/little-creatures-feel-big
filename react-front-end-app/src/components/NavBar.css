@@ -1,0 +1,46 @@
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.nav-logo {
+  height: 100px;
+  width: auto;
+  border-radius: 20px;
+  padding-left: 5px;
+  padding-top: 5px;
+}
+
+.nav-logo:hover {
+    cursor: pointer;
+  transform: scale(1.1);
+}
+
+.nav-button {
+  font-size: clamp(1rem, 1.5vw, 2rem);
+  max-width: 300px;
+  max-height: 50px;
+  text-decoration: none; /*removes the underline from the link*/
+  color: white;
+  border-radius: 16px;
+  padding: 12px 50px;
+  font-weight: 700;
+  display: flex; /* use flex so text can be centered */
+  align-items: center; /* centers vertically */
+  justify-content: center; /* centers horizontally */
+  border: 3px solid white;
+}
+
+.nav-button:hover {
+  background-color: var(--orange);
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  padding-right: 5px;
+}

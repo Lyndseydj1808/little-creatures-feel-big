@@ -10,13 +10,13 @@ export default function Home() {
         <img src={mobileImage} alt="Little Creatures Feel Big! image with creatures and rainbow." />
       </div>
       <div className="nav-buttons">
-        <Link className="nav-button parent-dashboard" to="/parent-login">
+        <Link className="button parent-dashboard" to="/parent-login">
           Parent Dashboard
         </Link>
-        <Link className="nav-button lets-play" to="/choose-an-account">
+        <Link className="button lets-play" to="/choose-an-account">
           Let's Play!
         </Link>
-        <Link className="nav-button about" to="/about">
+        <Link className="button about" to="/about">
           Learn About The Game
         </Link>
       </div>

@@ -21,7 +21,7 @@
   padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 24px);
 }
 
-.nav-button {
+.button {
   font-size: clamp(1.4rem, 2vw, 2rem);
   max-width: 300px;
   max-height: 200px;
@@ -36,7 +36,7 @@
   border: 3px solid white;
 }
 
-.nav-button:hover {
+.button:hover {
   background-color: var(--orange);
   cursor: pointer;
   transform: scale(1.1);
