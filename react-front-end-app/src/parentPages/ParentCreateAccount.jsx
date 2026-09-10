@@ -25,16 +25,16 @@ export default function ParentCreateAccount() {
       );
     } else {
       try {
-      await createParent({ email, password, firstName, lastName});
-      setFormSubmit(true);
-      setFormValidationFeedback("");
-    } catch (error) {
-      console.error(error);
-      setFormValidationFeedback(
-        "⚠️ Something went wrong creating your account. Please try again.",
-      );
+        await createParent({ email, password, firstName, lastName });
+        setFormSubmit(true);
+        setFormValidationFeedback("");
+      } catch (error) {
+        console.error(error);
+        setFormValidationFeedback(
+          "⚠️ Something went wrong creating your account. Please try again.",
+        );
+      }
     }
-  }
   };
   return (
     <main className="parent-create-account-container">
@@ -95,7 +95,9 @@ export default function ParentCreateAccount() {
                 onChange={(event) => setEmail(event.target.value)}
                 placeholder="example@email.com"
               />
-              <label htmlFor="firstName">First Name <span className="required-asterisk">*</span></label>
+              <label htmlFor="firstName">
+                First Name <span className="required-asterisk">*</span>
+              </label>
               <input
                 className="create-account-form-input"
                 type="text"
@@ -106,7 +108,9 @@ export default function ParentCreateAccount() {
                 onChange={(event) => setFirstName(event.target.value)}
                 placeholder="Enter first name"
               />
-              <label htmlFor="lastName">Last Name <span className="required-asterisk">*</span></label>
+              <label htmlFor="lastName">
+                Last Name <span className="required-asterisk">*</span>
+              </label>
               <input
                 className="create-account-form-input"
                 type="text"
@@ -117,7 +121,9 @@ export default function ParentCreateAccount() {
                 onChange={(event) => setLastName(event.target.value)}
                 placeholder="Enter last name"
               />
-              <label htmlFor="password">Password <span className="required-asterisk">*</span></label>
+              <label htmlFor="password">
+                Password <span className="required-asterisk">*</span>
+              </label>
               <input
                 className="create-account-form-input"
                 type="password"
@@ -144,9 +150,10 @@ export default function ParentCreateAccount() {
             </Link>
           </section>
         )}
-
-        <ParentDashboardButton />
-        <HomeButton />
+        <div className="button-row">
+          <HomeButton />
+          <ParentDashboardButton />
+        </div>
       </div>
     </main>
   );
