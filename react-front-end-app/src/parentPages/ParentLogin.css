@@ -1,0 +1,86 @@
+.login h1 {
+  margin-bottom: 5px;
+  color: var(--bg-lavender);
+  background: rgb(from var(--text-dark) r g b / 0.7);
+  border-radius: 8px;
+  padding: 8px;
+  display: inline-block;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px; /* space between inputs */
+  width: 100%;
+  max-width: 400px; /* prevents form getting too wide */
+  margin: 0 auto; /* centers the form */
+  background: rgb(from var(--bg-lavender) r g b / 0.7);
+  border-radius: 12px;
+  padding-top: 20px;
+}
+
+.login-form-input {
+  width: 80%;
+  padding: 12px 16px; /* comfortable click area */
+  border-radius: 12px; /* rounded corners */
+  border: 2px solid var(--teal);
+  font-size: 1rem;
+  font-family:
+    "Nunito", sans-serif; /* inputs don't inherit font automatically! */
+  color: var(--text-dark);
+  outline: none; /* removes default blue outline */
+}
+
+.login-form-input:focus {
+  border-color: var(--pink); /*changes border color when clicked*/
+  background-color: var(
+    --bg-lavender
+  ); /*changes background color when clicked*/
+}
+
+.login-button {
+  background-color: rgb(from var(--blue) r g b / 0.7);
+  color: white;
+  padding: 12px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 600;
+  display: inline-block;
+  cursor: pointer;
+  margin: 12px;
+}
+
+.login-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.login-feedback {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  color: white;
+  font-family: "Nunito", sans-serif;
+  font-size: 24px;
+  background-color: rgb(from var(--purple) r g b / 0.7);
+  border-radius: 24px;
+  max-width: 40%;
+  padding: 12px 24px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.create-account {
+  background-color: rgb(from var(--pink) r g b / 0.7);
+  color: white;
+  padding: 12px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 600;
+  display: inline-block;
+  cursor: pointer;
+  margin: 12px;
+}
