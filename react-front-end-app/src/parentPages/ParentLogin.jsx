@@ -28,7 +28,7 @@ export default function ParentLogin() {
   };
 
   return (
-    <main className="parent-dashboard-container">
+    <main className="parent-login-container">
       <section className="login-form-section">
         {feedback && <div className="login-feedback">{feedback}</div>}
         <div className="login">
@@ -52,11 +52,10 @@ export default function ParentLogin() {
               onChange={(event) => setPassword(event.target.value)}
               placeholder="Enter password"
             />
-            <button type="submit">Log In</button>
+            <button type="submit" className="login-button">Log In</button>
           </form>
-          <p>or</p>
           <Link className="create-account" to="/parent-create-account">
-            Create An Account
+           Or Create An Account
           </Link>
         </div>
       </section>
