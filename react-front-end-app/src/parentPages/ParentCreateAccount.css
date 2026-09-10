@@ -145,3 +145,8 @@
   max-width: 40%;
   padding: 12px 24px;
 }
+
+.button-row {
+  display: flex;
+  justify-content: space-between;
+}
