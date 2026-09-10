@@ -38,13 +38,13 @@ export default function ParentCreateAccount() {
   };
   return (
     <main className="parent-create-account-container">
-      <div className="create-account">
+      <div className="welcome-parents">
         <header>
-          <h1 className="text-5xl font-bold text-red-500">Hi Parents!</h1>
+          <h1>Hi Parents!</h1>
           <h2> Welcome to Little Creatures Feel Big!</h2>
         </header>
-        <section className="dashboard-description-section">
-          <p className="dashboard-description">
+        <section className="game-description-section">
+          <p className="game-description">
             I created this game to turn emotional learning into a joyful
             adventure for your little ones. As a parent, I know that big
             emotions can feel overwhelming for children. Research shows that
@@ -54,7 +54,7 @@ export default function ParentCreateAccount() {
             <br /> In this world of mini-games, your child will:
           </p>
 
-          <ul className="dashboard-list">
+          <ul className="game-list">
             <li>
               ✨ Meet the Creatures: Friendly characters who experience the same
               highs and lows kids do.
@@ -67,13 +67,13 @@ export default function ParentCreateAccount() {
               a safe, stress-free environment.
             </li>
           </ul>
-          <p className="dashboard-description">
+          <p className="game-description">
             Let's get started! Please create an account to add profiles for your
             children to play with. You can also choose to set time limits for
             your children.
           </p>
         </section>
-        <section className="form">
+        <section className="parent-create-account">
           {/*form for parents to create account */}
           {formValidationFeedback && (
             <div className="form-validation-feedback">
@@ -81,12 +81,12 @@ export default function ParentCreateAccount() {
             </div>
           )}
           {!formSubmit && (
-            <form className="parent-form" onSubmit={handleSubmit}>
+            <form className="create-account-form" onSubmit={handleSubmit}>
               <label htmlFor="email">
                 Email Address <span className="required-asterisk">*</span>
               </label>{" "}
               <input
-                className="parent-form-input"
+                className="create-account-form-input"
                 type="email"
                 id="email"
                 autoComplete="email"
@@ -97,7 +97,7 @@ export default function ParentCreateAccount() {
               />
               <label htmlFor="firstName">First Name <span className="required-asterisk">*</span></label>
               <input
-                className="parent-form-input"
+                className="create-account-form-input"
                 type="text"
                 id="firstName"
                 required
@@ -108,7 +108,7 @@ export default function ParentCreateAccount() {
               />
               <label htmlFor="lastName">Last Name <span className="required-asterisk">*</span></label>
               <input
-                className="parent-form-input"
+                className="create-account-form-input"
                 type="text"
                 id="lastName"
                 required
@@ -119,7 +119,7 @@ export default function ParentCreateAccount() {
               />
               <label htmlFor="password">Password <span className="required-asterisk">*</span></label>
               <input
-                className="parent-form-input"
+                className="create-account-form-input"
                 type="password"
                 id="password"
                 autoComplete="new-password"
@@ -129,7 +129,7 @@ export default function ParentCreateAccount() {
                 placeholder="Enter password"
               />
               <p className="required-note">* = required field</p>
-              <button className="create-account" type="submit">
+              <button className="create-account-button" type="submit">
                 Create Account
               </button>
             </form>
