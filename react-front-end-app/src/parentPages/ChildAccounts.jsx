@@ -37,6 +37,7 @@ export default function ChildAccounts() {
         useEffect(() => {
         loadChildAccounts();
     }, [loadChildAccounts]);
+    
 
     return (
         <main className="child-accounts-container">
