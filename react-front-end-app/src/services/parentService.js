@@ -1,39 +1,71 @@
-import { API_URL } from './apiConfig';
+import { API_URL } from "./apiConfig";
 
 export async function createParent(parentData) {
-    const response = await fetch(`${API_URL}/parent`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        credentials: 'include',
-        body: JSON.stringify(parentData),
- });
+  const response = await fetch(`${API_URL}/parent`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+    body: JSON.stringify(parentData),
+  });
 
- if (!response.ok) {
-    throw new Error('⚠️ Failed to create account');
- }
+  if (!response.ok) {
+    throw new Error("⚠️ Failed to create account");
+  }
 
- const data = await response.json();
- return data;
+  const data = await response.json();
+  return data;
+}
+
+export async function updateParentAccount(parentId, updates) {
+  const response = await fetch(`${API_URL}/parent/${parentId}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+    body: JSON.stringify(updates),
+  });
+
+  if (!response.ok) {
+    throw new Error("⚠️ Error updating account.");
+  }
+
+  const updatedParent = await response.json();
+  return updatedParent;
+}
+
+export async function deleteParentAccount(parentId) {
+  const response = await fetch(`${API_URL}/parent/${parentId}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+  });
+
+  if (!response.ok) {
+    throw new Error("⚠️ Error deleting account.");
+  }
+
+  return true;
 }
 
 export async function loginParent(credentials) {
-    const response = await fetch(`${API_URL}/parent/login`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        credentials: 'include',//sends the session cookie
-        body: JSON.stringify(credentials),
-    });
+  const response = await fetch(`${API_URL}/parent/login`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include", //sends the session cookie
+    body: JSON.stringify(credentials),
+  });
 
-    if (!response.ok) {
-        throw new Error('⚠️ Email and/or Password is incorrect.')
-    }
+  if (!response.ok) {
+    throw new Error("⚠️ Email and/or Password is incorrect.");
+  }
 
-    const data = await response.json();
-    return data;
-    
+  const data = await response.json();
+  return data;
 }
-    
