@@ -10,9 +10,9 @@ import ParentLogin from "./parentPages/ParentLogin";
 import ParentCreateAccount from "./parentPages/ParentCreateAccount";
 import CreateChildAccount from "./parentPages/CreateChildAccount";
 import ChildAccounts from "./parentPages/ChildAccounts";
-import TimeLimit from "./parentPages/TimeLimit";
 import ChooseAnAccount from "./childPages/ChooseAnAccount";
 import Layout from './components/Layout.jsx'
+
 
 function App() {
   const [childName, setChildName] = useState("");
@@ -40,12 +40,14 @@ function App() {
         />
         <Route path="/create-child-account" element={<CreateChildAccount onUpdateChild={onUpdateChild} childName={childName} />} />
         <Route path="/child-accounts" element={<ChildAccounts />} />
-        <Route path="/time-limit" element={<TimeLimit />} />
         <Route path="/choose-an-account" element={<ChooseAnAccount />} />
         <Route
           path="/mini-games"
           element={<MainGames childName={childName} />}
         />
+        <Route path="/mini-games/:childId"
+        element={<MainGames childName={childName} />}
+      />
         <Route
           path="/games/feeling-friends"
           element={<FeelingFriends childName={childName} />}

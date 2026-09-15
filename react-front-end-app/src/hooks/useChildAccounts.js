@@ -1,5 +1,5 @@
 import React, { useCallback, useState, useEffect } from "react"
-import { API_URL } from "../services/apiConfig";
+import { getChildAccounts } from "../services/childService";
 
 export default function useChildAccounts() {
       const [childAccounts, setChildAccounts] = useState([]); 
@@ -10,18 +10,8 @@ export default function useChildAccounts() {
           setLoading(true);
           setLoadError("");
           try {
-                  const response = await fetch(`${API_URL}/parent/childList`, {
-                      method:'GET',
-                      headers: {
-                          'Content-Type': 'application/json',
-                      },
-                      credentials: 'include'
-                      });
-  
-                      const data = await response.json()
-  
-                      setChildAccounts(Array.isArray(data) ? data : []);
-                      console.log(data);
+                  const data = await getChildAccounts();
+                  setChildAccounts(Array.isArray(data) ? data : []);
   
               }  catch (e) {
               setLoadError(e.message);
