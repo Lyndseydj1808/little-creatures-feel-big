@@ -69,3 +69,18 @@ export async function loginParent(credentials) {
   const data = await response.json();
   return data;
 }
+
+export async function getParent() {
+  const response = await fetch(`${API_URL}/parent/me`, {
+    method: "GET",
+    credentials: "include",
+  });
+
+   if (!response.ok) {
+    throw new Error("⚠️ Please login.");
+  }
+
+  const data = await response.json();
+  return data;
+
+}
