@@ -1,18 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import BackButton from "../components/BackButton";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { loginParent } from "../services/parentService";
 import "./ParentLogin.css";
+import { getParent } from "../services/parentService";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 export default function ParentLogin() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [feedback, setFeedback] = useState("");
+  const [checkingSession, setCheckingSession] = useState(true);
+
+  useEffect(() => {
+  async function checkIfLoggedIn() {
+    try {
+      const parent = await getParent();
+      navigate("/parent-dashboard");
+    } catch (error) {
+      setCheckingSession(false);
+    }
+  }
+
+  checkIfLoggedIn();
+}, [navigate]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+  
 
     if (!email || !password) {
       setFeedback("⚠️ Please enter email and password.");
@@ -26,6 +44,12 @@ export default function ParentLogin() {
       }
     }
   };
+
+  if (checkingSession) {
+  return (
+  <LoadingSpinner />
+  );
+};
 
   return (
     <main className="parent-login-container">
