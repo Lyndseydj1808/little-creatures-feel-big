@@ -14,13 +14,14 @@ export default function ParentLogin() {
   const [feedback, setFeedback] = useState("");
   const [checkingSession, setCheckingSession] = useState(true);
 
+  //checks if parent is logged in, if so reroutes to parent-dashboard
   useEffect(() => {
   async function checkIfLoggedIn() {
     try {
-      const parent = await getParent();
-      navigate("/parent-dashboard");
+      await getParent();
+      navigate("/parent-dashboard");//if logged in routes to parent-dashboard
     } catch (error) {
-      setCheckingSession(false);
+      setCheckingSession(false);//if not logged in, page renders
     }
   }
 
