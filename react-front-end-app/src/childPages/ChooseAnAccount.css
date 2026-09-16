@@ -1,0 +1,80 @@
+.loading-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 20px auto;
+}
+
+.parent-logged-in {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.child-button-to-main-games {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: clamp(1rem, 3vw, 5rem);
+  max-width: 300px;
+  max-height: 300px;
+  text-decoration: none;
+  color: white;
+  border-radius: 16px;
+  padding: 12px 50px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid white;
+  background-color: var(--purple);
+}
+
+.no-parent-account {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.guest {
+  font-size: clamp(1rem, 3vw, 5rem);
+  max-width: 300px;
+  max-height: 300px;
+  text-decoration: none;
+  color: white;
+  border-radius: 16px;
+  padding: 12px 50px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid white;
+  background-color: var(--yellow);
+}
+
+.no-parent {
+  margin-top: 100px;
+  font-size: clamp(1rem, 3vw, 5rem);
+  max-width: 600px;
+  max-height: 300px;
+  text-decoration: none;
+  color: white;
+  border-radius: 16px;
+  padding: 12px 50px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid white;
+  background-color: rgb(from var(--text-dark) r g b / 0.7);
+}
+
+.or-divider {
+  display: block;
+  text-align: center;
+  margin: 12px 0;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
