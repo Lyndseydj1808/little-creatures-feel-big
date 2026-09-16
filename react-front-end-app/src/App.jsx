@@ -11,7 +11,8 @@ import ParentCreateAccount from "./parentPages/ParentCreateAccount";
 import CreateChildAccount from "./parentPages/CreateChildAccount";
 import ChildAccounts from "./parentPages/ChildAccounts";
 import ChooseAnAccount from "./childPages/ChooseAnAccount";
-import Layout from './components/Layout.jsx'
+import Layout from "./components/Layout.jsx";
+import AuthProvider from "./context/AuthProvider";
 
 
 function App() {
@@ -27,38 +28,52 @@ function App() {
   };
   return (
     <>
+    <AuthProvider>
       <Routes>
         <Route path="/" element={<Home />} />
-
+        {/*Adds the nav bar to all pages (except home)*/}
         <Route element={<Layout />}>
-        <Route path="/parent-login" element={<ParentLogin />} />
-        <Route path="/parent-create-account" element={<ParentCreateAccount />} />
-        <Route path="/parent-dashboard" element={<ParentDashboard />} />
-        <Route
-          path="/parent-create-account"
-          element={<ParentCreateAccount />}
-        />
-        <Route path="/create-child-account" element={<CreateChildAccount onUpdateChild={onUpdateChild} childName={childName} />} />
-        <Route path="/child-accounts" element={<ChildAccounts />} />
-        <Route path="/choose-an-account" element={<ChooseAnAccount />} />
-        <Route
-          path="/mini-games"
-          element={<MainGames childName={childName} />}
-        />
-        <Route path="/mini-games/:childId"
-        element={<MainGames childName={childName} />}
-      />
-        <Route
-          path="/games/feeling-friends"
-          element={<FeelingFriends childName={childName} />}
-        />
-        <Route
-          path="/games/kind-creatures"
-          element={<KindCreatures childName={childName} />}
-        />
-        <Route path="/about" element={<About childName={childName} />} />
+          <Route path="/parent-login" element={<ParentLogin />} />
+          <Route
+            path="/parent-create-account"
+            element={<ParentCreateAccount />}
+          />
+          <Route path="/parent-dashboard" element={<ParentDashboard />} />
+          <Route
+            path="/parent-create-account"
+            element={<ParentCreateAccount />}
+          />
+          <Route
+            path="/create-child-account"
+            element={
+              <CreateChildAccount
+                onUpdateChild={onUpdateChild}
+                childName={childName}
+              />
+            }
+          />
+          <Route path="/child-accounts" element={<ChildAccounts />} />
+          <Route path="/choose-an-account" element={<ChooseAnAccount />} />
+          <Route
+            path="/mini-games"
+            element={<MainGames childName={childName} />}
+          />
+          <Route
+            path="/mini-games/:childId"
+            element={<MainGames childName={childName} />}
+          />
+          <Route
+            path="/games/feeling-friends"
+            element={<FeelingFriends childName={childName} />}
+          />
+          <Route
+            path="/games/kind-creatures"
+            element={<KindCreatures childName={childName} />}
+          />
+          <Route path="/about" element={<About childName={childName} />} />
         </Route>
       </Routes>
+      </AuthProvider>
     </>
   );
 }
