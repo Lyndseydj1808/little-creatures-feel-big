@@ -1,0 +1,37 @@
+.child-accounts-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.child-account {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: clamp(1rem, 3vw, 5rem);
+  max-width: 300px;
+  max-height: 300px;
+  text-decoration: none;
+  color: white;
+  border-radius: 16px;
+  padding: 12px 50px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid white;
+  background-color: var(--purple);
+}
+
+.name {
+    font-size: 30px;
+}
+
+.bottom-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+}

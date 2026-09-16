@@ -3,6 +3,7 @@ import LoadingSpinner from "../components/LoadingSpinner";
 import HomeButton from "../components/HomeButton";
 import ParentDashboardButton from "../components/ParentDashboardButton";
 import useChildAccounts from "../hooks/useChildAccounts";
+import "./ChildAccounts.css";
 
 export default function ChildAccounts() {
   const { childAccounts, loading, loadError } = useChildAccounts();
@@ -16,16 +17,15 @@ export default function ChildAccounts() {
       )}
       {loadError && <p>Error: {loadError}</p>}
       {childAccounts.map((child) => (
-        <div key={child.childId}>
-          <p>{child.name}</p>
-          <p>Age: {child.age}</p>
-          <p>Stars: {child.starCount}</p>
-          <p>Creature: {child.creatureChoice}</p>
+        <div className="child-account" key={child.childId}>
+          <p className="name">{child.name}</p>
+          <p className="age">Age: {child.age}</p>
+          <p className="creature">Creature: {child.creatureChoice}</p>
         </div>
       ))}
-      <div>
-        <ParentDashboardButton />
+      <div className="bottom-buttons">
         <HomeButton />
+        <ParentDashboardButton />
       </div>
     </main>
   );
