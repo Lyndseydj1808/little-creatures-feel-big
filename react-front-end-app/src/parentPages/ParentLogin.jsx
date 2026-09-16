@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import BackButton from "../components/BackButton";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -6,6 +6,7 @@ import { loginParent } from "../services/parentService";
 import "./ParentLogin.css";
 import { getParent } from "../services/parentService";
 import LoadingSpinner from "../components/LoadingSpinner";
+import AuthContext from "../context/AuthContext";
 
 export default function ParentLogin() {
   const navigate = useNavigate();
@@ -13,6 +14,10 @@ export default function ParentLogin() {
   const [password, setPassword] = useState("");
   const [feedback, setFeedback] = useState("");
   const [checkingSession, setCheckingSession] = useState(true);
+
+  // pulls setAuthValue from the shared auth broadcast so a successful login
+  // can update it directly, without a second server round trip
+  const { setAuthValue } = useContext(AuthContext);
 
   //checks if parent is logged in, if so reroutes to parent-dashboard
   useEffect(() => {
@@ -35,7 +40,8 @@ export default function ParentLogin() {
       setFeedback("⚠️ Please enter email and password.");
     } else {
       try {
-        await loginParent({ email, password });
+        const parentData = await loginParent({ email, password });
+        setAuthValue(parentData);
         navigate("/parent-dashboard");
       } catch (error) {
         console.error(error);
@@ -44,6 +50,7 @@ export default function ParentLogin() {
     }
   };
 
+  // shows a spinner while the initial login check above is still running
   if (checkingSession) {
     return (
       <div className="loading-placeholder">
