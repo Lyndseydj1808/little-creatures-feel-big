@@ -15,7 +15,7 @@ export default function ParentDashboard() {
         await getParent();
         setCheckingSession(false); //if logged in page renders
       } catch (error) {
-        navigate("/parent-login");//if not logged in routes to parent-login
+        navigate("/parent-login"); //if not logged in routes to parent-login
       }
     }
 
@@ -23,7 +23,11 @@ export default function ParentDashboard() {
   }, [navigate]);
 
   if (checkingSession) {
-    return <LoadingSpinner />;
+    return (
+      <div className="loading-placeholder">
+        <LoadingSpinner />
+      </div>
+    );
   }
 
   return (

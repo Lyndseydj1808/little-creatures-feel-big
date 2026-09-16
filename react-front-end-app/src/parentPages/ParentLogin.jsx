@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import BackButton from "../components/BackButton";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -16,22 +16,20 @@ export default function ParentLogin() {
 
   //checks if parent is logged in, if so reroutes to parent-dashboard
   useEffect(() => {
-  async function checkIfLoggedIn() {
-    try {
-      await getParent();
-      navigate("/parent-dashboard");//if logged in routes to parent-dashboard
-    } catch (error) {
-      setCheckingSession(false);//if not logged in, page renders
+    async function checkIfLoggedIn() {
+      try {
+        await getParent();
+        navigate("/parent-dashboard"); //if logged in routes to parent-dashboard
+      } catch (error) {
+        setCheckingSession(false); //if not logged in, page renders
+      }
     }
-  }
 
-  checkIfLoggedIn();
-}, [navigate]);
+    checkIfLoggedIn();
+  }, [navigate]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-  
 
     if (!email || !password) {
       setFeedback("⚠️ Please enter email and password.");
@@ -47,10 +45,12 @@ export default function ParentLogin() {
   };
 
   if (checkingSession) {
-  return (
-  <LoadingSpinner />
-  );
-};
+    return (
+      <div className="loading-placeholder">
+        <LoadingSpinner />
+      </div>
+    );
+  }
 
   return (
     <main className="parent-login-container">
@@ -77,10 +77,12 @@ export default function ParentLogin() {
               onChange={(event) => setPassword(event.target.value)}
               placeholder="Enter password"
             />
-            <button type="submit" className="login-button">Log In</button>
+            <button type="submit" className="login-button">
+              Log In
+            </button>
           </form>
           <Link className="create-account" to="/parent-create-account">
-           Or Create An Account
+            Or Create An Account
           </Link>
         </div>
       </section>
