@@ -1,17 +1,15 @@
 package com.lyndsey.littlecreatures.little_creatures_backend.controller;
 
-import com.lyndsey.littlecreatures.little_creatures_backend.DTO.ChildRequestDTO;
-import com.lyndsey.littlecreatures.little_creatures_backend.DTO.ChildResponseDTO;
-import com.lyndsey.littlecreatures.little_creatures_backend.DTO.ParentRequestDTO;
-import com.lyndsey.littlecreatures.little_creatures_backend.DTO.ParentResponseDTO;
-import com.lyndsey.littlecreatures.little_creatures_backend.DTO.LoginRequestDTO;
+import com.lyndsey.littlecreatures.little_creatures_backend.DTO.*;
 import com.lyndsey.littlecreatures.little_creatures_backend.model.Child;
 import com.lyndsey.littlecreatures.little_creatures_backend.model.Parent;
 import com.lyndsey.littlecreatures.little_creatures_backend.repository.ChildRepository;
 import com.lyndsey.littlecreatures.little_creatures_backend.repository.ParentRepository;
+
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
@@ -58,6 +56,7 @@ public class ParentController {
         return response;
     }
 
+    //Need this so the frontend has a way to check if the user is logged in and get the current parent info
     @GetMapping("me")
     public ParentResponseDTO getCurrentParent(HttpSession session) {
         Integer parentId = (Integer) session.getAttribute("parentId");
@@ -77,12 +76,17 @@ public class ParentController {
         return response;
     }
 
-    @PutMapping("{parentId}")
-    public ParentResponseDTO updateParent(@PathVariable int parentId, @Valid @RequestBody ParentRequestDTO dto) {
+    @PutMapping("updateParent")
+    public ParentResponseDTO updateParent(HttpSession session, @Valid @RequestBody ParentUpdateAccountRequestDTO dto) {
+        Integer parentId = (Integer) session.getAttribute("parentId");
+
+        if (parentId == null) {
+            throw new NotLoggedInException("Not logged in");
+        }
+
         Parent existingParent = parentRepository.findById(parentId).orElseThrow();
 
         existingParent.setEmail(dto.getEmail());
-        existingParent.setPwHash(dto.getPassword());
         existingParent.setFirstName(dto.getFirstName());
         existingParent.setLastName(dto.getLastName());
 
@@ -95,6 +99,22 @@ public class ParentController {
         response.setLastName(updatedParent.getLastName());
 
         return response;
+    }
+
+    @PutMapping("updatePassword")
+    public ResponseEntity<Void> updatePassword(HttpSession session, @Valid @RequestBody ParentUpdatePasswordRequestDTO dto) {
+        Integer parentId = (Integer) session.getAttribute("parentId");
+
+        if (parentId == null) {
+            throw new NotLoggedInException("Not logged in");
+        }
+        Parent existingParent = parentRepository.findById(parentId).orElseThrow();
+
+        existingParent.setPwHash(dto.getPassword());
+
+        Parent updatedPassword = parentRepository.save(existingParent);
+
+        return ResponseEntity.ok().build();
     }
 
 
@@ -146,6 +166,13 @@ public class ParentController {
 
         return response;
     }
+
+    @PostMapping("logout")
+    public ResponseEntity<Void> logout(HttpSession session) {
+        session.invalidate();
+        return ResponseEntity.ok().build();
+    }
+
 
     @GetMapping("childList")
     public List<ChildResponseDTO> getChildList(HttpSession session) {
