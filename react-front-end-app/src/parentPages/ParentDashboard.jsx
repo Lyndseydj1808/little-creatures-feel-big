@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect, React, useState } from "react";
-import { getParent } from "../services/parentService";
+import { getParent, updateParentAccount } from "../services/parentService";
 import { useNavigate } from "react-router-dom";
 import LoadingSpinner from "../components/LoadingSpinner";
 import "./ParentDashboard.css";
@@ -53,6 +53,10 @@ export default function ParentDashboard() {
         <Link className="view-child-account-button" to="/child-accounts">
           View Child Accounts
         </Link>
+        <Link className="update-parent-account" to="/update-parent-account">
+          Update Account Info
+        </Link>
+        <Link className="update-password" to="/update-password">Update Password</Link>
         <button className="logout-button" type="Button" onClick={handleLogout}>
           Logout
         </button>

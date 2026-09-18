@@ -13,6 +13,8 @@ import ChildAccounts from "./parentPages/ChildAccounts";
 import ChooseAnAccount from "./childPages/ChooseAnAccount";
 import Layout from "./components/Layout.jsx";
 import AuthProvider from "./context/AuthProvider";
+import ParentUpdateAccount from "./parentPages/ParentUpdateAccount.jsx";
+import ParentUpdatePassword from "./parentPages/ParentUpdatePassword.jsx";
 
 
 function App() {
@@ -43,6 +45,8 @@ function App() {
             path="/parent-create-account"
             element={<ParentCreateAccount />}
           />
+          <Route path="update-parent-account" element={<ParentUpdateAccount />} />
+          <Route path="update-password" element={<ParentUpdatePassword />} />
           <Route
             path="/create-child-account"
             element={
