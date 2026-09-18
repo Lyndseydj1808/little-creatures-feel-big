@@ -8,7 +8,7 @@
 }
 
 .create-child-account-button {
-  background-color: var(--purple);
+  background-color: var(--teal);
   font-size: clamp(2rem, 4vw, 6rem);
   text-decoration: none; /*removes the underline from the link*/
   color: white;
@@ -29,7 +29,7 @@
 }
 
 .view-child-account-button {
-  background-color: var(--orange);
+  background-color: var(--purple);
   font-size: clamp(2rem, 4vw, 6rem);
   text-decoration: none; /*removes the underline from the link*/
   color: white;
@@ -45,6 +45,27 @@
 }
 
 .view-child-account-button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.logout-button {
+  background-color: var(--orange);
+  font-size: clamp(1rem, 2vw, 6rem);
+  text-decoration: none; /*removes the underline from the link*/
+  color: white;
+  border-radius: 30px;
+  padding: 20px 20px;
+  max-width: 600px;
+  margin-top: 50px;
+  font-weight: 500;
+  display: flex; /* use flex so text can be centered */
+  align-items: center; /* centers vertically */
+  justify-content: center; /* centers horizontally */
+  border: 3px solid white;
+}
+
+.logout-button:hover {
   cursor: pointer;
   transform: scale(1.1);
 }

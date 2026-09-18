@@ -70,6 +70,17 @@ export async function loginParent(credentials) {
   return data;
 }
 
+export async function logoutParent() {
+  const response = await fetch(`${API_URL}/parent/logout`, {
+    method: "POST",
+    credentials: "include",
+  });
+
+     if (!response.ok) {
+    throw new Error("⚠️ Error logging out.");
+  }
+}
+
 export async function getParent() {
   const response = await fetch(`${API_URL}/parent/me`, {
     method: "GET",
@@ -84,3 +95,4 @@ export async function getParent() {
   return data;
 
 }
+

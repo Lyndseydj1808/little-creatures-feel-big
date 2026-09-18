@@ -4,10 +4,12 @@ import { getParent } from "../services/parentService";
 import { useNavigate } from "react-router-dom";
 import LoadingSpinner from "../components/LoadingSpinner";
 import "./ParentDashboard.css";
+import { logoutParent } from "../services/parentService";
 
 export default function ParentDashboard() {
   const navigate = useNavigate();
   const [checkingSession, setCheckingSession] = useState(true);
+  const [logoutFeedback, setLogoutFeedback] = useState("");
 
   useEffect(() => {
     async function checkIfLoggedIn() {
@@ -21,6 +23,15 @@ export default function ParentDashboard() {
 
     checkIfLoggedIn();
   }, [navigate]);
+
+  const handleLogout = async () => {
+    try {
+      await logoutParent();
+      navigate("/parent-login");
+    } catch (error) {
+      setLogoutFeedback("⚠️ Error logging out");
+    }
+  };
 
   if (checkingSession) {
     return (
@@ -42,6 +53,10 @@ export default function ParentDashboard() {
         <Link className="view-child-account-button" to="/child-accounts">
           View Child Accounts
         </Link>
+        <button className="logout-button" type="Button" onClick={handleLogout}>
+          Logout
+        </button>
+        {logoutFeedback && <p className="logout-feedback">{logoutFeedback}</p>}
       </div>
     </main>
   );
