@@ -18,8 +18,8 @@ export async function createParent(parentData) {
   return data;
 }
 
-export async function updateParentAccount(parentId, updates) {
-  const response = await fetch(`${API_URL}/parent/${parentId}`, {
+export async function updateParentAccount(updates) {
+  const response = await fetch(`${API_URL}/parent/updateParent`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -35,6 +35,22 @@ export async function updateParentAccount(parentId, updates) {
   const updatedParent = await response.json();
   return updatedParent;
 }
+
+export async function updateParentPassword(update) {
+  const response = await fetch(`${API_URL}/parent/updatePassword`, {
+    method: "PUT",
+      headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+    body: JSON.stringify(update),
+  });
+
+    if (!response.ok) {
+    throw new Error("⚠️ Error updating account.");
+  }
+
+  }
 
 export async function deleteParentAccount(parentId) {
   const response = await fetch(`${API_URL}/parent/${parentId}`, {
