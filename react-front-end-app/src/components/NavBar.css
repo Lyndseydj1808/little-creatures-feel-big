@@ -2,6 +2,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 
@@ -15,12 +16,12 @@ nav {
 }
 
 .nav-logo:hover {
-    cursor: pointer;
+  cursor: pointer;
   transform: scale(1.1);
 }
 
 .nav-button {
-  font-size: clamp(.5rem, 1vw, 1.5rem);
+  font-size: clamp(0.5rem, 1vw, 1.5rem);
   max-width: 100px;
   max-height: 50px;
   text-decoration: none; /*removes the underline from the link*/
@@ -46,6 +47,28 @@ nav {
   padding-right: 5px;
 }
 
+.hamburger-icon {
+  display: none; /* hidden on desktop */
+}
+
 @media (max-width: 480px) {
-  
+  .nav-logo {
+    height: 60px;
+  }
+
+  .hamburger-icon {
+    display: block; /* shown on phones */
+    margin-right: 10px;
+  }
+
+  .nav-links {
+    display: none; /* links hidden by default on phones */
+    flex-direction: column;
+    align-items: flex-end; /* links appear on right side */
+    width: 100%;
+  }
+
+  .nav-links-open {
+    display: flex; /* links revealed when menu is open */
+  }
 }

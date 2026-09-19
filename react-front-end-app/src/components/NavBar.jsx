@@ -2,12 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/images/lcfb-nav-image.jpg";
 import "./NavBar.css";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import AuthContext from "../context/AuthContext";
 
 export default function NavBar() {
   // tunes into the shared auth broadcast to read current login status
   const { authValue } = useContext(AuthContext);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <nav>
@@ -18,7 +19,16 @@ export default function NavBar() {
           className="nav-logo"
         />{" "}
       </Link>
-      <div className="nav-links">
+      <button
+        className="hamburger-icon"
+        type="button"
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+      >
+        ☰
+      </button>
+      <div className={`nav-links ${isMenuOpen ? "nav-links-open" : ""}`}>
+        {" "}
+        {/*shows links if navBar is open on phone*/}
         {/* shows Parent Login if logged out, Parent Dashboard if a parent is logged in */}
         {authValue === null ? (
           <Link to="/parent-login" className="parent-dashboard nav-button">
