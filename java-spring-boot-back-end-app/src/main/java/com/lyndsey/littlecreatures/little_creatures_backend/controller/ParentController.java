@@ -118,9 +118,16 @@ public class ParentController {
     }
 
 
-    @DeleteMapping("{parentId}")
-    public void deleteParent(@PathVariable int parentId) {
+    @DeleteMapping("deleteParent")
+    public ResponseEntity<Void> deleteParent(HttpSession session) {
+        Integer parentId = (Integer) session.getAttribute("parentId");
+
+        if (parentId == null) {
+            throw new NotLoggedInException("Not logged in");
+        }
         parentRepository.deleteById(parentId);
+
+        return ResponseEntity.ok().build();
     }
 
     @PostMapping("child")

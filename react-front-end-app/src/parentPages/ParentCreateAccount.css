@@ -86,15 +86,13 @@
   font-size: 1rem;
   font-family:
     "Nunito", sans-serif; /* inputs don't inherit font automatically! */
-  color: var(--text-dark);
+  color: var(--bg-lavender);
   outline: none; /* removes default blue outline */
 }
 
 .create-account-form-input:focus {
   border-color: var(--pink); /*changes border color when clicked*/
-  background-color: var(
-    --bg-lavender
-  ); /*changes background color when clicked*/
+  background-color: var(--text-dark); /*changes background color when clicked*/
 }
 
 .create-account-button {
@@ -111,6 +109,26 @@
 }
 
 .create-account-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.login {
+  background-color: rgb(from var(--teal) r g b / 0.7);
+  color: white;
+  padding: 12px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 600;
+  display: inline-block;
+  cursor: pointer;
+  margin: 12px;
+  border-color: white;
+  border-width: 3px;
+}
+
+.login:hover {
   transform: scale(1.1);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }

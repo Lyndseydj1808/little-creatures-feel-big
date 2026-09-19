@@ -52,8 +52,8 @@ export async function updateParentPassword(update) {
 
   }
 
-export async function deleteParentAccount(parentId) {
-  const response = await fetch(`${API_URL}/parent/${parentId}`, {
+export async function deleteParentAccount() {
+  const response = await fetch(`${API_URL}/parent/deleteParent`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
