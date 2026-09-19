@@ -65,10 +65,10 @@ export default function ParentLogin() {
         {feedback && <div className="login-feedback">{feedback}</div>}
         <div className="login-section">
           <h1>Please Login</h1>
-          <form className="login-form" onSubmit={handleSubmit}>
+          <form className="form login-form" onSubmit={handleSubmit}>
             <label htmlFor="email">Email</label>
             <input
-              className="login-form-input"
+              className="form-input login-form-input"
               type="email"
               id="email"
               value={email}
@@ -77,14 +77,14 @@ export default function ParentLogin() {
             />
             <label htmlFor="password">Password</label>
             <input
-              className="login-form-input"
+              className="form-input login-form-input"
               type="password"
               id="password"
               value={password}
               onChange={(event) => setPassword(event.target.value)}
               placeholder="Enter password"
             />
-            <button type="submit" className="login-button">
+            <button type="submit" className="form-button login-button">
               Log In
             </button>
           </form>

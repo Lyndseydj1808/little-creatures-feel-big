@@ -1,0 +1,18 @@
+.creature-choice-select {
+  padding: 10px 40px 10px 14px;
+  background-color: rgb(from var(--bg-lavender) r g b / 0.7);
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  border: 2px solid var(--purple);
+  border-radius: 12px;
+}
+
+.creature-choice-select:focus {
+  border-color: var(--purple);
+  outline: 3px solid var(--teal);
+  outline-offset: 2px;
+}
+
+.form-validation-feedback {
+    align-items: center;
+}
