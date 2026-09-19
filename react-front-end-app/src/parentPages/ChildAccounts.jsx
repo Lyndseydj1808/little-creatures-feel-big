@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import LoadingSpinner from "../components/LoadingSpinner";
 import HomeButton from "../components/HomeButton";
 import ParentDashboardButton from "../components/ParentDashboardButton";
@@ -23,10 +24,9 @@ export default function ChildAccounts() {
           <p className="creature">Creature: {child.creatureChoice}</p>
         </div>
       ))}
-      <div className="bottom-buttons">
-        <HomeButton />
-        <ParentDashboardButton />
-      </div>
+     <Link className="child-accounts" to="/create-child-account">
+        Create another child account
+      </Link>
     </main>
   );
 }

@@ -95,11 +95,11 @@ export default function CreateChildAccount() {
       {formSubmit && (
         <section className="form-feedback-section">
           <div className="form-submit-feedback">{`Thank you! We hope ${name} has so much fun exploring Little Creatures Feel Big!`}</div>
-          <Link className="child-accounts" to="/child-accounts">
-            ⬅️ Back to Child Accounts
-          </Link>
         </section>
       )}
+      <Link className="child-accounts" to="/child-accounts">
+        ⬅️ Back to Child Accounts
+      </Link>
     </main>
   );
 }
