@@ -1,5 +1,5 @@
 .parent-dashboard-button {
-  background: rgb(from var(--blue) r g b / 0.7);
+  background: var(--blue);
   color: white;
   padding: 12px 12px;
   border-radius: 8px;

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { updateParentPassword } from "../services/parentService";
+import "./ParentUpdatePassword.css";
+import ParentDashboardButton from "../components/ParentDashboardButton";
 
 export default function ParentUpdatePassword() {
   const [password, setPassword] = useState("");
@@ -13,7 +15,7 @@ export default function ParentUpdatePassword() {
         password,
       });
       setFormSubmit(true);
-      setFormFeedback("Account updated succesfully");
+      setFormFeedback("Password updated succesfully");
       setPassword("");
     } catch (error) {
       setFormFeedback("⚠️ Error updating account. Please try again.");
@@ -23,27 +25,33 @@ export default function ParentUpdatePassword() {
   return (
     <main className="update-password-container">
       <section className="update-password-section">
-        {formSubmit && <div className="feedback">{formFeedback}</div>}
-
-        <div className="update-password">
-          <form className="update-password-form" onSubmit={handleUpdate}>
-            <label htmlFor="password">New Password</label>
-            <input
-              className="update-password-form-input"
-              type="password"
-              id="password"
-              autoComplete="new-password"
-              required
-              minLength={8}
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-              placeholder="Enter password"
-            />
-            <button className="update-password" type="submit">
-              Update Password
-            </button>
-          </form>
+        {formSubmit && <div className="feedback">{formFeedback}
+          <ParentDashboardButton />
         </div>
+        }
+      </section>
+      <section>
+        {!formSubmit && (
+          <div className="update-password-container">
+            <form className="update-password-form" onSubmit={handleUpdate}>
+              <label htmlFor="password">New Password</label>
+              <input
+                className="update-password-form-input"
+                type="password"
+                id="password"
+                autoComplete="new-password"
+                required
+                minLength={8}
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+                placeholder="Enter password"
+              />
+              <button className="update-password-button" type="submit">
+                Update Password
+              </button>
+            </form>
+          </div>
+        )}
       </section>
     </main>
   );
