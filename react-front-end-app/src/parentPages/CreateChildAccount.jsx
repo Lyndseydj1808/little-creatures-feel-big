@@ -4,7 +4,7 @@ import HomeButton from "../components/HomeButton";
 import ParentDashboardButton from "../components/ParentDashboardButton";
 import { createChild } from "../services/childService";
 import { Link } from "react-router-dom";
-import NavBar from "../components/NavBar";
+import "./CreateChildAccount.css";
 
 export default function CreateChildAccount() {
   const [formSubmit, setFormSubmit] = useState(false);
@@ -17,8 +17,10 @@ export default function CreateChildAccount() {
     event.preventDefault();
 
     const ageNumber = Number(age); //converts useState age (which is always stored as a string) to a number
-    if (!name || !age) {
-      setFormValidationFeedback("⚠️ Please enter name and age.");
+    if (!name || !age || !creatureChoice) {
+      setFormValidationFeedback(
+        "⚠️ Please enter name, age and select a creature.",
+      );
     } else if (ageNumber >= 18 || ageNumber <= 0) {
       setFormValidationFeedback("⚠️ Please enter a valid age.");
     } else {
@@ -40,16 +42,16 @@ export default function CreateChildAccount() {
         <div className="form-validation-feedback">{formValidationFeedback}</div>
       )}
       {!formSubmit && (
-        <section className="form">
-          <div className="create-account">
+        <section className="create-child-account-section">
+          <div className="create-child-account">
             <header>
               <h1>Make A Child Account</h1>
-              <h2> You can make a seperate account for each child.</h2>
+              <h2> You can make a separate account for each child.</h2>
             </header>
-            <form className="parent-form" onSubmit={handleSubmit}>
+            <form className="form parent-form" onSubmit={handleSubmit}>
               <label htmlFor="childName">Child's Name</label>
               <input
-                className="parent-form-input"
+                className="form-input parent-form-input"
                 type="text"
                 id="childName"
                 value={name}
@@ -58,7 +60,7 @@ export default function CreateChildAccount() {
               />
               <label htmlFor="childAge">Child's Age</label>
               <input
-                className="parent-form-input"
+                className="form-input parent-form-input"
                 type="number"
                 id="childAge"
                 min="1"
@@ -69,6 +71,7 @@ export default function CreateChildAccount() {
               />
               <label htmlFor="creature-choice">Choose A Creature</label>
               <select
+                className="creature-choice-select"
                 name="chooseCreature"
                 id="creature-choice"
                 value={creatureChoice}
@@ -79,9 +82,9 @@ export default function CreateChildAccount() {
                 <option value="Dragon">🐉 Dragon</option>
                 <option value="Llama">🦙 Llama</option>
                 <option value="Peacock">🦚 Peacock</option>
-                <option value="Pheonix">🐦‍🔥 Phoenix</option>
+                <option value="Phoenix">🐦‍🔥 Phoenix</option>
               </select>
-              <button className="save-button" type="submit">
+              <button className="form-button save-button" type="submit">
                 Save
               </button>
             </form>
@@ -92,14 +95,11 @@ export default function CreateChildAccount() {
       {formSubmit && (
         <section className="form-feedback-section">
           <div className="form-submit-feedback">{`Thank you! We hope ${name} has so much fun exploring Little Creatures Feel Big!`}</div>
-          <Link className="child-accounts" to="/child-accounts">
-            Child Accounts
-          </Link>
         </section>
       )}
-
-      <ParentDashboardButton />
-      <HomeButton />
+      <Link className="back-to-button" to="/child-accounts">
+        ⬅️ Back to Child Accounts
+      </Link>
     </main>
   );
 }

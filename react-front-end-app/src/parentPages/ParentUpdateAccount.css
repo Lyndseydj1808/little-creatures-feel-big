@@ -1,5 +1,5 @@
-.parent-dashboard-button {
-  background: var(--blue);
+.back-to-button {
+  background: rgb(from var(--text-dark) r g b / 0.7);
   color: white;
   padding: 12px 12px;
   border-radius: 8px;
@@ -8,13 +8,7 @@
   font-weight: 600;
   display: inline-block;
   cursor: pointer;
-  margin: 12px;
+  margin: 8px;
+  margin-top: 6px;
   border: 3px solid white;
 }
-
-.parent-dashboard-button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-

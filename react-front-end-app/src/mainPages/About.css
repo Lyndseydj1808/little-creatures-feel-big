@@ -43,19 +43,34 @@
   border-radius: 30px;
 }
 
-.github-button {
-  background-color: var(--purple);
+.social-links-container {
+  color: var(--text-dark);
+  display:flex;
+  flex-direction: column;
+}
+.social-links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.social-button {
+  background-color: var(--text-dark);
   color: white;
   padding: 12px 24px;
   border-radius: 16px;
   text-decoration: none;
   font-weight: 700;
   font-size: 1rem;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 5px 5px;
 }
 
-.github-button:hover {
-  background-color: var(--pink);
+.social-button:hover {
+  background-color: var(--bg-lavender);
+  color: var(--text-dark);
   cursor: pointer;
   scale: 1.1;
 }
@@ -71,16 +86,18 @@
 }
 
 .table-creature-image {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  min-width: 150px;
+  height: auto;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
-  border-radius: 50%; /* circular image */
+  border-radius: 50%;
 }
 
 table {
   border-collapse: collapse; /* removes double borders */
   width: 100%;
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -88,25 +105,31 @@ th {
   background-color: var(--purple);
   color: white;
   padding: 12px;
-  font-size: 30px;
+  font-size: 20px;
 }
 
 td {
   padding: 10px;
   border-bottom: 1px solid var(--bg-lavender);
-  font-size: 30px;
+  font-size: 15px;
   color: var(--text-dark);
   background-color: rgb(from var(--bg-lavender) r g b / 0.7);
 }
 
-@media (max-width: 480px) {
+.creature-about {
+  width: 35%;
+}
 
+@media (max-width: 480px) {
   td, th {
-    font-size: 20px;
+    font-size: 16px;
     padding: 8px;
   }
   .table-creature-image {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    min-width: 80px;
+  }
+  .creature-about {
+    width: auto;
   }
 }

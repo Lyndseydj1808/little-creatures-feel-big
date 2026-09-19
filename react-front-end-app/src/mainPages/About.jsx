@@ -8,6 +8,7 @@ import peacockHappy from "../assets/images/creatures/peacock-happy.png";
 import phoenixHappy from "../assets/images/creatures/phoenix-excited.png";
 import llamaHappy from "../assets/images/creatures/llama-happy.png";
 import dragonHappy from "../assets/images/creatures/dragon-happy.png";
+import { FaGithub, FaLinkedin, FaEnvelope, FaLaptopCode } from "react-icons/fa";
 
 export default function About({ childName }) {
   return (
@@ -30,7 +31,7 @@ export default function About({ childName }) {
           say!
         </li>
         <li>
-          ✨Parents, check out our parent dashboard for more information and to
+          ✨ Parents, check out our parent dashboard for more information and to
           enter your child's name and age to add to their fun!
         </li>
       </ul>
@@ -39,13 +40,14 @@ export default function About({ childName }) {
           <caption>Meet the Creatures!</caption>
           <thead>
             <tr>
-              <th>Picture</th>
-              <th>Creature</th>
-              <th>Name</th>
+              <th>Creatures</th>
+              <th></th>
+              <th>About me!</th>
             </tr>
           </thead>
           <tbody>
             <tr>
+              <td>Yardly the Unicorn</td>
               <td>
                 <img
                   src={unicornHappy}
@@ -53,10 +55,13 @@ export default function About({ childName }) {
                   alt="Unicorn image created using AI"
                 />
               </td>
-              <td>Unicorn</td>
-              <td>Yardly</td>
+              <td className="creature-about">
+                Yardly loves rainbows! Sometimes she wanders through the forest
+                all day looking for every last one.
+              </td>
             </tr>
             <tr>
+              <td>Perry the Peacock</td>
               <td>
                 <img
                   src={peacockHappy}
@@ -64,10 +69,14 @@ export default function About({ childName }) {
                   alt="Peacock image created using AI"
                 />
               </td>
-              <td>Peacock</td>
-              <td>Perry</td>
+              <td className="creature-about">
+                Perry loves to dance and show off his sparkly feathers. When he
+                feels nervous before a show, he takes a big breath and shines
+                anyway!
+              </td>
             </tr>
             <tr>
+              <td>Larry the Llama</td>
               <td>
                 <img
                   src={llamaHappy}
@@ -75,10 +84,13 @@ export default function About({ childName }) {
                   alt="Llama image created using AI"
                 />
               </td>
-              <td>Llama</td>
-              <td>Larry</td>
+              <td className="creature-about">
+                Larry loves humming silly songs and munching on crunchy carrots.
+                He gives the best hugs, especially to friends having a hard day.
+              </td>
             </tr>
             <tr>
+              <td>Danny the Dragon</td>
               <td>
                 <img
                   src={dragonHappy}
@@ -86,10 +98,14 @@ export default function About({ childName }) {
                   alt="Dragon image created using AI"
                 />
               </td>
-              <td>Dragon</td>
-              <td>Danny</td>
+              <td className="creature-about">
+                Danny loves toasting marshmallows with their gentle fire breath.
+                When they feel grumpy, they breathe out slowly, like blowing out a
+                birthday candle.
+              </td>
             </tr>
             <tr>
+              <td>Finnleigh the Phoenix</td>
               <td>
                 <img
                   src={phoenixHappy}
@@ -97,13 +113,16 @@ export default function About({ childName }) {
                   alt="Phoenix image created using AI"
                 />
               </td>
-              <td>Phoenix</td>
-              <td>Finnleigh</td>
+              <td className="creature-about">
+                Finnleigh loves watching the sunrise, because it reminds her
+                that every day is a fresh start. She knows it's always okay to
+                try again!
+              </td>
             </tr>
           </tbody>
         </table>
       </div>
-      <h1 className="about-the-dev">About the developer!</h1>
+      <h2 className="about-the-dev">About the developer!</h2>
       <img
         className="profile-picture"
         src={profilePicture}
@@ -115,53 +134,59 @@ export default function About({ childName }) {
         heart-led project to help my own children learn about emotional
         intelligence and build a foundation of self-worth.
         <br />
-        <br />
-        This project has allowed me to tie together the front-end fundamentals
-        I've been mastering. Moving from basic JavaScript/HTML/CSS to building a
-        dynamic, state-driven React application. By focusing on reusable
-        components and clean data structures, I've built a scalable application
-        that I hope to expand on and grow as my children do.{" "}
+        <br />I started this project to tie together the front-end fundamentals
+        I've been mastering, moving from basic JavaScript, HTML, and CSS to
+        building a dynamic, state-driven React application. I then expanded on
+        it with what I've learned about backend systems, using Spring Boot,
+        Java, and MySQL. Parents can create an account and add profiles for
+        their children. By focusing on reusable components and clean data
+        structures, I've built a scalable application that I hope to expand and
+        grow as my children do.
       </p>
-      <div className="dev-links">
-        <a
-          href="https://github.com/Lyndseydj1808"
-          target="_blank"
-          rel="noreferrer"
-          className="github-button"
-        >
-          GitHub
-        </a>
-        <a
-          href="https://www.linkedin.com/in/lyndsey-clarkson/"
-          target="_blank"
-          rel="noreferrer"
-          className="linkedIn-button"
-        >
-          LinkedIn
-        </a>
-        <a
-          href="https://lyndseydj1808.github.io/Lyndsey-Clarkson-Portfolio/"
-          target="_blank"
-          rel="noreferrer"
-          className="portfolio-button"
-        >
-          Portfolio
-        </a>
-        <div className="contact">
-          <h2 className="contact-header">Contact Me!</h2>
-          <p>
-            If you have any questions about the game, this project, or me please
-            email!
-          </p>
+      <div className="social-links-container">
+        <h2>My Links!</h2>
+        <div className="social-links">
+          <a
+            href="https://github.com/Lyndseydj1808"
+            target="_blank"
+            rel="noreferrer"
+            className="social-button github"
+          >
+            <FaGithub />
+            GitHub
+          </a>
+          <a
+            href="https://www.linkedin.com/in/lyndsey-clarkson/"
+            target="_blank"
+            rel="noreferrer"
+            className="social-button linkedin"
+          >
+            <FaLinkedin />
+            LinkedIn
+          </a>
+          <a
+            href="https://lyndseydj1808.github.io/Lyndsey-Clarkson-Portfolio/"
+            target="_blank"
+            rel="noreferrer"
+            className="social-button portfolio"
+          >
+            <FaLaptopCode />
+            Portfolio
+          </a>
           <a
             href="mailto: lyndseydj1808@gmail.com"
             target="_blank"
             rel="noreferrer"
-            className="email"
+            className="social-button email"
           >
+            <FaEnvelope />
             Email
           </a>
         </div>
+        <p className="email-me">
+          If you have any questions about the game, this project, or me please
+          email!
+        </p>
       </div>
       <BackButton />
     </div>
