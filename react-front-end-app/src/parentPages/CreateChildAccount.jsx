@@ -97,7 +97,7 @@ export default function CreateChildAccount() {
           <div className="form-submit-feedback">{`Thank you! We hope ${name} has so much fun exploring Little Creatures Feel Big!`}</div>
         </section>
       )}
-      <Link className="child-accounts" to="/child-accounts">
+      <Link className="back-to-button" to="/child-accounts">
         ⬅️ Back to Child Accounts
       </Link>
     </main>

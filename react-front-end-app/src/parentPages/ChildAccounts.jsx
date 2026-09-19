@@ -24,8 +24,11 @@ export default function ChildAccounts() {
           <p className="creature">Creature: {child.creatureChoice}</p>
         </div>
       ))}
-     <Link className="child-accounts" to="/create-child-account">
+      <Link className="back-to-button" to="/create-child-account">
         Create another child account
+      </Link>
+      <Link className="back-to-button" to="/parent-dashboard">
+        ⬅️ Back to Parent Dashboard
       </Link>
     </main>
   );

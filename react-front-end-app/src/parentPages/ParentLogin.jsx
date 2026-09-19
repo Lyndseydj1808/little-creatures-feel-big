@@ -7,6 +7,7 @@ import "./ParentLogin.css";
 import { getParent } from "../services/parentService";
 import LoadingSpinner from "../components/LoadingSpinner";
 import AuthContext from "../context/AuthContext";
+import HomeButton from "../components/HomeButton";
 
 export default function ParentLogin() {
   const navigate = useNavigate();
@@ -93,7 +94,7 @@ export default function ParentLogin() {
           </Link>
         </div>
       </section>
-      <BackButton />
+      <HomeButton />
     </main>
   );
 }

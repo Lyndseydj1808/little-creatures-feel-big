@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { updateParentPassword } from "../services/parentService";
 import "./ParentUpdatePassword.css";
 import ParentDashboardButton from "../components/ParentDashboardButton";
+import { Link } from "react-router-dom";
 
 export default function ParentUpdatePassword() {
   const [password, setPassword] = useState("");
@@ -25,10 +26,11 @@ export default function ParentUpdatePassword() {
   return (
     <main className="update-password-container">
       <section className="update-password-section">
-        {formSubmit && <div className="feedback">{formFeedback}
-          <ParentDashboardButton />
-        </div>
-        }
+        {formSubmit && (
+          <div className="feedback">
+            {formFeedback}
+          </div>
+        )}
       </section>
       <section>
         {!formSubmit && (
@@ -52,6 +54,9 @@ export default function ParentUpdatePassword() {
             </form>
           </div>
         )}
+        <Link className="back-to-button" to="/parent-dashboard">
+          ⬅️ Back to Parent Dashboard
+        </Link>
       </section>
     </main>
   );
