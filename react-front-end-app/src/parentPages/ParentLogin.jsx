@@ -63,7 +63,7 @@ export default function ParentLogin() {
     <main className="parent-login-container">
       <section className="login-form-section">
         {feedback && <div className="login-feedback">{feedback}</div>}
-        <div className="login">
+        <div className="login-section">
           <h1>Please Login</h1>
           <form className="login-form" onSubmit={handleSubmit}>
             <label htmlFor="email">Email</label>

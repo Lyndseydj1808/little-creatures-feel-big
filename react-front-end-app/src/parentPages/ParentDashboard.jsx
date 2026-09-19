@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect, React, useState } from "react";
-import { getParent, updateParentAccount } from "../services/parentService";
+import { deleteParentAccount, getParent } from "../services/parentService";
 import { useNavigate } from "react-router-dom";
 import LoadingSpinner from "../components/LoadingSpinner";
 import "./ParentDashboard.css";
@@ -10,6 +10,7 @@ export default function ParentDashboard() {
   const navigate = useNavigate();
   const [checkingSession, setCheckingSession] = useState(true);
   const [logoutFeedback, setLogoutFeedback] = useState("");
+  const [deleteFeedback, setDeleteFeedback] = useState("");
 
   useEffect(() => {
     async function checkIfLoggedIn() {
@@ -32,6 +33,16 @@ export default function ParentDashboard() {
       setLogoutFeedback("⚠️ Error logging out");
     }
   };
+
+  const handleDelete = async () => {
+    try {
+      await deleteParentAccount();
+      navigate("/parent-dashboard");
+      setDeleteFeedback("Account deleted");
+    } catch (error) {
+      setDeleteFeedback("⚠️ Error deleting account")
+    }
+  }
 
   if (checkingSession) {
     return (
@@ -61,6 +72,12 @@ export default function ParentDashboard() {
           Logout
         </button>
         {logoutFeedback && <p className="logout-feedback">{logoutFeedback}</p>}
+      <button className="delete-button" type="Button" onClick={handleDelete}>
+          DELETE ACCOUNT 
+        </button>
+        <p>*Pressing the DELETE ACCOUNT button will perminently delete your account. Please make sure you want to delete your entire account before clicking the DELETE ACCOUNT button!*</p>
+             {deleteFeedback && <p className="delete-feedback">{deleteFeedback}</p>}
+
       </div>
     </main>
   );
