@@ -1,71 +1,110 @@
-.parent-nav-buttons {
+.parent-dashboard-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
+  margin-top: 120px;
+}
+
+.dashboard-buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
   padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 24px);
 }
 
-.create-child-account-button {
-  background-color: var(--teal);
-  font-size: clamp(2rem, 4vw, 6rem);
+.dashboard-button {
+  font-size: clamp(1rem, 2vw, 3rem);
   text-decoration: none; /*removes the underline from the link*/
   color: white;
-  border-radius: 30px;
-  padding: 40px 40px;
-  max-width: 800px;
-  margin-top: 100px;
-  font-weight: 600;
-  display: flex; /* use flex so text can be centered */
-  align-items: center; /* centers vertically */
-  justify-content: center; /* centers horizontally */
-  border: 3px solid white;
-}
-
-.create-child-account-button:hover {
-  cursor: pointer;
-  transform: scale(1.1);
-}
-
-.view-child-account-button {
-  background-color: var(--purple);
-  font-size: clamp(2rem, 4vw, 6rem);
-  text-decoration: none; /*removes the underline from the link*/
-  color: white;
-  border-radius: 30px;
-  padding: 40px 40px;
-  max-width: 800px;
-  margin-top: 50px;
-  font-weight: 600;
-  display: flex; /* use flex so text can be centered */
-  align-items: center; /* centers vertically */
-  justify-content: center; /* centers horizontally */
-  border: 3px solid white;
-}
-
-.view-child-account-button:hover {
-  cursor: pointer;
-  transform: scale(1.1);
-}
-
-.logout-button {
-  background-color: var(--orange);
-  font-size: clamp(1rem, 2vw, 6rem);
-  text-decoration: none; /*removes the underline from the link*/
-  color: white;
-  border-radius: 30px;
-  padding: 20px 20px;
-  max-width: 600px;
-  margin-top: 50px;
+  border-radius: 20px;
+  padding: 10px 5px;
+  margin-top: 10px;
   font-weight: 500;
   display: flex; /* use flex so text can be centered */
   align-items: center; /* centers vertically */
   justify-content: center; /* centers horizontally */
+  border: 3px solid white;
+  width: calc(50% - 0.5rem);
+  box-sizing: border-box;
+}
+
+.dashboard-button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.create-child-account-button {
+  background-color: var(--teal);
+}
+
+.view-child-account-button {
+  background-color: var(--purple);
+}
+
+.update-parent-account {
+  background-color: var(--yellow);
+}
+
+.update-password {
+  background-color: var(--pink);
+}
+
+.logout-section {
+  display: flex;
+  justify-content: center;
+  padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 24px);
+}
+
+.logout-button {
+  background-color: var(--orange);
+  font-size: clamp(1rem, 2vw, 3rem);
+  text-decoration: none; /*removes the underline from the link*/
+  color: white;
+  border-radius: 20px;
+  padding: 10px 160px;
+  margin-top: 10px;
+  font-weight: 500;
   border: 3px solid white;
 }
 
 .logout-button:hover {
   cursor: pointer;
   transform: scale(1.1);
+}
+
+.delete-account-section {
+  margin-top: 200px;
+}
+.delete-account {
+  background-color: red;
+  font-size: 10px;
+  text-decoration: none; /*removes the underline from the link*/
+  color: white;
+  border-radius: 10px;
+  padding: 10px 10px;
+  max-width: 400px;
+  margin-top: 10px;
+  font-weight: 300;
+  display: flex; /* use flex so text can be centered */
+  align-items: center; /* centers vertically */
+  justify-content: center; /* centers horizontally */
+  border: 3px solid white;
+  margin: auto;
+}
+
+.delete-account:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.delete-message {
+  max-width: 400px;
+  font-size: 10px;
+  margin: auto;
+}
+
+@media (max-width: 600px) {
+  .dashboard-button {
+    width: 100%;
+  }
 }

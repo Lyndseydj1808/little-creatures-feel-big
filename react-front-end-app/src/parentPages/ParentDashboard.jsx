@@ -37,12 +37,11 @@ export default function ParentDashboard() {
   const handleDelete = async () => {
     try {
       await deleteParentAccount();
-      navigate("/parent-dashboard");
-      setDeleteFeedback("Account deleted");
+      navigate("/parent-login");
     } catch (error) {
-      setDeleteFeedback("⚠️ Error deleting account")
+      setDeleteFeedback("⚠️ Error deleting account");
     }
-  }
+  };
 
   if (checkingSession) {
     return (
@@ -54,31 +53,59 @@ export default function ParentDashboard() {
 
   return (
     <main className="parent-dashboard-container">
-      <div className="parent-nav-buttons">
+      <div className="dashboard-buttons">
         <Link
-          className="create-child-account-button"
+          className="dashboard-button create-child-account-button"
           to="/create-child-account"
         >
           Create Child Account
         </Link>
-        <Link className="view-child-account-button" to="/child-accounts">
+        <Link
+          className="dashboard-button view-child-account-button"
+          to="/child-accounts"
+        >
           View Child Accounts
         </Link>
-        <Link className="update-parent-account" to="/update-parent-account">
+        <Link
+          className="dashboard-button update-parent-account"
+          to="/update-parent-account"
+        >
           Update Account Info
         </Link>
-        <Link className="update-password" to="/update-password">Update Password</Link>
-        <button className="logout-button" type="Button" onClick={handleLogout}>
+        <Link
+          className="dashboard-button update-password"
+          to="/update-password"
+        >
+          Update Password
+        </Link>
+        </div>
+        <div className="logout-section">
+        <button
+          className="logout-button"
+          type="button"
+          onClick={handleLogout}
+        >
           Logout
         </button>
         {logoutFeedback && <p className="logout-feedback">{logoutFeedback}</p>}
-      <button className="delete-button" type="Button" onClick={handleDelete}>
-          DELETE ACCOUNT 
-        </button>
-        <p>*Pressing the DELETE ACCOUNT button will perminently delete your account. Please make sure you want to delete your entire account before clicking the DELETE ACCOUNT button!*</p>
-             {deleteFeedback && <p className="delete-feedback">{deleteFeedback}</p>}
-
-      </div>
+        </div>
+        <div className="delete-account-section">
+          <p className="delete-message">
+            {" "}
+            ***Clicking this button will PERMANENTLY DELETE this parent account
+            AND all associated child accounts for this parent account! Only
+            click this button if you are SURE you want to DELETE your
+            account!***
+          </p>
+          <button
+            className="delete-account"
+            type="button"
+            onClick={handleDelete}
+          >
+            DELETE ACCOUNT
+          </button>
+          {deleteFeedback && <p className="delete-feedback">{deleteFeedback}</p>}
+        </div>
     </main>
   );
 }
