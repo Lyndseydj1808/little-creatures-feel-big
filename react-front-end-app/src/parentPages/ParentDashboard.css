@@ -82,25 +82,19 @@
   color: white;
   border-radius: 10px;
   padding: 10px 10px;
-  max-width: 400px;
+  max-width: 200px;
   margin-top: 10px;
   font-weight: 300;
   display: flex; /* use flex so text can be centered */
   align-items: center; /* centers vertically */
   justify-content: center; /* centers horizontally */
   border: 3px solid white;
-  margin: auto;
+  margin: 20px auto;
 }
 
 .delete-account:hover {
   cursor: pointer;
   transform: scale(1.1);
-}
-
-.delete-message {
-  max-width: 400px;
-  font-size: 10px;
-  margin: auto;
 }
 
 @media (max-width: 600px) {

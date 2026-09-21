@@ -36,7 +36,7 @@ export async function getChildAccounts() {
 }
 
 export async function updateChildAccount(childId, updates) {
-  const response = await fetch(`${API_URL}/parent/child/${childId}`, {
+  const response = await fetch(`${API_URL}/child/${childId}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -54,7 +54,7 @@ export async function updateChildAccount(childId, updates) {
 }
 
 export async function deleteChildAccount(childId) {
-  const response = await fetch(`${API_URL}/parent/child/${childId}`, {
+  const response = await fetch(`${API_URL}/child/${childId}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
