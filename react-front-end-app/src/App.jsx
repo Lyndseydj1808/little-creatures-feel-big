@@ -15,6 +15,9 @@ import Layout from "./components/Layout.jsx";
 import AuthProvider from "./context/AuthProvider";
 import ParentUpdateAccount from "./parentPages/ParentUpdateAccount.jsx";
 import ParentUpdatePassword from "./parentPages/ParentUpdatePassword.jsx";
+import UpdateChildAccount from "./parentPages/UpdateChildAccount.jsx";
+import DeleteParent from "./parentPages/DeleteParent.jsx";
+import DeleteChild from "./parentPages/DeleteChild.jsx";
 
 
 function App() {
@@ -41,12 +44,11 @@ function App() {
             element={<ParentCreateAccount />}
           />
           <Route path="/parent-dashboard" element={<ParentDashboard />} />
-          <Route
-            path="/parent-create-account"
-            element={<ParentCreateAccount />}
-          />
-          <Route path="update-parent-account" element={<ParentUpdateAccount />} />
-          <Route path="update-password" element={<ParentUpdatePassword />} />
+          <Route path="/update-parent-account" element={<ParentUpdateAccount />} />
+          <Route path="'update-password" element={<ParentUpdatePassword />} />
+          <Route path="/delete-parent-account" element={<DeleteParent />} />
+          <Route path="/update-child-account/:childId" element={<UpdateChildAccount />} />
+          <Route path="/delete-child-account/:childId" element={<DeleteChild />} />
           <Route
             path="/create-child-account"
             element={

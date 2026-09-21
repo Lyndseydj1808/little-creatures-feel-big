@@ -86,8 +86,8 @@ export default function ParentUpdateAccount() {
               type="text"
               id="lastName"
               required
-              autoComplete="family-name"
-              value={lastName}
+              autoComplete="family-name"//autofills based on users saved info in browser
+              value={lastName}//autofills the input fiels with the lastName from the getParent call
               onChange={(event) => setLastName(event.target.value)}
               placeholder="Enter updated last name"
             />

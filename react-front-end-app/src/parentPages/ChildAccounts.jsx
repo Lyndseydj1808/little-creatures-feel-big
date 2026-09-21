@@ -19,9 +19,9 @@ export default function ChildAccounts() {
       {loadError && <p>Error: {loadError}</p>}
       {childAccounts.map((child) => (
         <div className="child-account" key={child.childId}>
-          <p className="name">{child.name}</p>
-          <p className="age">Age: {child.age}</p>
-          <p className="creature">Creature: {child.creatureChoice}</p>
+          <Link className="update-child-account" to={`/update-child-account/${child.childId}`}>
+            {child.name}
+          </Link>
         </div>
       ))}
       <Link className="back-to-button" to="/create-child-account">

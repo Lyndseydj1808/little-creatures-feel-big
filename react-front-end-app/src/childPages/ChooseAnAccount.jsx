@@ -17,6 +17,7 @@ export default function ChooseAnAccount() {
             </div>
           )}
           {loadError && <p>Error: {loadError}</p>}
+          <h1>Who is playing?</h1>
           {childAccounts.map((child) => (
             <Link
               className="child-button-to-main-games"
