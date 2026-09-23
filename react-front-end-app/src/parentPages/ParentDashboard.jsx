@@ -42,6 +42,7 @@ export default function ParentDashboard() {
 
   return (
     <main className="parent-dashboard-container">
+      <h1>Parent Dashboard</h1>
       <div className="dashboard-buttons">
         <Link
           className="dashboard-button create-child-account-button"

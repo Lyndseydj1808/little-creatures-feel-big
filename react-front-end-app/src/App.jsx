@@ -18,6 +18,7 @@ import ParentUpdatePassword from "./parentPages/ParentUpdatePassword.jsx";
 import UpdateChildAccount from "./parentPages/UpdateChildAccount.jsx";
 import DeleteParent from "./parentPages/DeleteParent.jsx";
 import DeleteChild from "./parentPages/DeleteChild.jsx";
+import Footer from "./components/Footer.jsx";
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
     <>
     <AuthProvider>
       <Routes>
+        <Route element={<Footer />}>
         <Route path="/" element={<Home />} />
         {/*Adds the nav bar to all pages (except home)*/}
         <Route element={<Layout />}>
@@ -77,6 +79,7 @@ function App() {
             element={<KindCreatures childName={childName} />}
           />
           <Route path="/about" element={<About childName={childName} />} />
+        </Route>
         </Route>
       </Routes>
       </AuthProvider>
