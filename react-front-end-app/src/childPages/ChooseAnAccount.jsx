@@ -9,7 +9,6 @@ export default function ChooseAnAccount() {
 
   if (!loadError) {
     return (
-      <main className="choose-account-contianer">
         <div className="parent-logged-in">
           {loading && (
             <div className="loading-placeholder">
@@ -32,7 +31,6 @@ export default function ChooseAnAccount() {
             ▶️ Play Now as a guest!
           </Link>
         </div>
-      </main>
     );
   }
 

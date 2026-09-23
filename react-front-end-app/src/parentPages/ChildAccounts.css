@@ -6,6 +6,11 @@
   margin-top: 80px;
 }
 
+.child-account-list {
+  list-style: none;
+  padding: 0;
+}
+
 .child-account {
   display: flex;
   flex-direction: column;

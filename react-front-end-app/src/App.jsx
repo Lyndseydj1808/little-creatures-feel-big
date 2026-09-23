@@ -47,7 +47,7 @@ function App() {
           />
           <Route path="/parent-dashboard" element={<ParentDashboard />} />
           <Route path="/update-parent-account" element={<ParentUpdateAccount />} />
-          <Route path="'update-password" element={<ParentUpdatePassword />} />
+          <Route path="/update-password" element={<ParentUpdatePassword />} />
           <Route path="/delete-parent-account" element={<DeleteParent />} />
           <Route path="/update-child-account/:childId" element={<UpdateChildAccount />} />
           <Route path="/delete-child-account/:childId" element={<DeleteChild />} />
@@ -55,8 +55,6 @@ function App() {
             path="/create-child-account"
             element={
               <CreateChildAccount
-                onUpdateChild={onUpdateChild}
-                childName={childName}
               />
             }
           />

@@ -1,9 +1,8 @@
-import { useEffect, React, useState } from "react";
-import { getParent } from "../services/parentService";
+import React, { useEffect, useState } from "react";
+import { getParent, logoutParent } from "../services/parentService";
 import { useNavigate, Link } from "react-router-dom";
 import LoadingSpinner from "../components/LoadingSpinner";
 import "./ParentDashboard.css";
-import { logoutParent } from "../services/parentService";
 
 export default function ParentDashboard() {
   const navigate = useNavigate();
@@ -41,9 +40,9 @@ export default function ParentDashboard() {
   }
 
   return (
-    <main className="parent-dashboard-container">
+    <div className="parent-dashboard-container">
       <h1>Parent Dashboard</h1>
-      <div className="dashboard-buttons">
+      <nav className="dashboard-buttons" aria-label="Parent dashboard">
         <Link
           className="dashboard-button create-child-account-button"
           to="/create-child-account"
@@ -68,20 +67,20 @@ export default function ParentDashboard() {
         >
           Update Password
         </Link>
-        </div>
+        </nav>
         <div className="logout-section">
         <button
           className="logout-button"
           type="button"
           onClick={handleLogout}
         >
-          Logout
+          Log Out
         </button>
         {logoutFeedback && <p className="logout-feedback">{logoutFeedback}</p>}
         </div>
         <div className="delete-account-section">
           <Link className="delete-account" to="/delete-parent-account">Delete Account</Link>
         </div>
-    </main>
+    </div>
   );
 }

@@ -6,7 +6,7 @@ import "./KindCreatures.css";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import MainGamesButton from "../../components/MainGamesButton";
 import shuffleArray from "../../utils/shuffleArray";
-import AudioButton from "../../components/audioButton";
+import AudioButton from "../../components/AudioButton";
 
 export default function KindCreatures({ childName }) {
   /*pass childName prop in */

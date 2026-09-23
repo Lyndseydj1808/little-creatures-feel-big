@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-
-import { updateParentAccount } from "../services/parentService";
-import { getParent } from "../services/parentService";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { updateParentAccount, getParent } from "../services/parentService";
 import "./ParentUpdateAccount.css"
+import LoadingSpinner from "../components/LoadingSpinner";
 
 
 export default function ParentUpdateAccount() {
@@ -15,6 +13,7 @@ export default function ParentUpdateAccount() {
   const [lastName, setLastName] = useState("");
   const [formSubmit, setFormSubmit] = useState(false);
   const [formFeedback, setFormFeedback] = useState("");
+  const [checkingSession, setCheckingSession] = useState(true);
 
   useEffect(() => {
     async function loadParentData() {
@@ -23,6 +22,7 @@ export default function ParentUpdateAccount() {
         setEmail(parentData.email);
         setFirstName(parentData.firstName);
         setLastName(parentData.lastName);
+        setCheckingSession(false);
       } catch (error) {
         navigate("/parent-login");
       }
@@ -39,22 +39,31 @@ export default function ParentUpdateAccount() {
         lastName,
       });
       setFormSubmit(true);
-      setFormFeedback("Account updated succesfully");
+      setFormFeedback("Account updated successfully");
     } catch (error) {
       setFormFeedback("⚠️ Error updating account. Please try again.");
     }
   };
 
+   // shows a spinner while the initial login check above is still running
+    if (checkingSession) {
+      return (
+        <div className="loading-placeholder">
+          <LoadingSpinner />
+        </div>
+      );
+    }
+
   return (
-    <main className="update-parent-account-container">
+    <div className="update-parent-account-container">
       {!formSubmit && (
         <div className="update-email-name-form">
           <h1>Update Account</h1>
-          <h2>Please provide updated email and name </h2>
+          <p>Please provide updated email and name </p>
           <form className="form update-account-form" onSubmit={handleUpdate}>
             <label htmlFor="email">
               Email Address <span className="required-asterisk">*</span>
-            </label>{" "}
+            </label>
             <input
               className="form-input update-account-form-input"
               type="email"
@@ -87,7 +96,7 @@ export default function ParentUpdateAccount() {
               id="lastName"
               required
               autoComplete="family-name"//autofills based on users saved info in browser
-              value={lastName}//autofills the input fiels with the lastName from the getParent call
+              value={lastName}//autofills the input fields with the lastName from the getParent call
               onChange={(event) => setLastName(event.target.value)}
               placeholder="Enter updated last name"
             />
@@ -98,10 +107,10 @@ export default function ParentUpdateAccount() {
           </form>
         </div>
       )}
-      {formSubmit && <div className="feedback">{formFeedback}</div>}
+      {formFeedback && <div className="feedback">{formFeedback}</div>}
       <Link className="back-to-button" to="/parent-dashboard">
         ⬅️ Back to Parent Dashboard
       </Link>
-    </main>
+    </div>
   );
 }

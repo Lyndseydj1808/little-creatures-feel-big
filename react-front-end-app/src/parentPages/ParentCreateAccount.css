@@ -1,9 +1,3 @@
-.welcome-parents {
-  background-color: rgb(from var(--pink) r g b / 0.7);
-  width: 100%;
-  max-width: 800px;
-}
-
 .parent-create-account-container {
   display: flex;
   flex-direction: column;
@@ -12,6 +6,8 @@
   min-height: 100vh;
   gap: 24px;
   padding: 20px;
+  width: 100%;
+  max-width: 800px;
 }
 
 .parent-create-account-container h1 {

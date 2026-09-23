@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getChildAccounts, updateChildAccount } from "../services/childService";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 export default function UpdateChildAccount() {
   const { childId } = useParams();
@@ -9,6 +10,7 @@ export default function UpdateChildAccount() {
   const [creatureChoice, setCreatureChoice] = useState("");
   const [formSubmit, setFormSubmit] = useState(false);
   const [formFeedback, setFormFeedback] = useState("");
+  const [checkingSession, setCheckingSession] = useState(true);
 
   useEffect(() => {
     async function loadChildData() {
@@ -19,11 +21,14 @@ export default function UpdateChildAccount() {
           setName(child.name);
           setAge(child.age);
           setCreatureChoice(child.creatureChoice);
+        } else {
+          setFormFeedback("⚠️ We couldn't find that account.")
         }
       } catch (error) {
         setFormFeedback("⚠️ Error loading account. Please try again.");
-      }
-    }
+      } finally {
+          setCheckingSession(false);//always stops the spinner
+    }}
     loadChildData();
   }, [childId]);
 
@@ -36,18 +41,26 @@ export default function UpdateChildAccount() {
         creatureChoice,
       });
       setFormSubmit(true);
-      setFormFeedback("Account updated succesfully");
+      setFormFeedback("Account updated successfully");
     } catch (error) {
       setFormFeedback("⚠️ Error updating account. Please try again.");
     }
   };
 
+  if (checkingSession) {
+    return (
+      <div className="loading-placeholder">
+        <LoadingSpinner />
+      </div>
+    );
+  }
+
   return (
-    <main className="update-child-account-container">
+    <div className="update-child-account-container">
       {!formSubmit && (
         <div className="update-child-form">
           <h1>Update Child Account</h1>
-          <h2>Please provide updated information. </h2>
+          <p>Please provide updated information. </p>
           <form className="form parent-form" onSubmit={handleSubmit}>
             <label htmlFor="childName">Child's Name</label>
             <input
@@ -90,15 +103,18 @@ export default function UpdateChildAccount() {
           </form>
         </div>
       )}
-      {formSubmit && <div className="feedback">{formFeedback}</div>}
+      {formFeedback && <div className="feedback">{formFeedback}</div>}
       <Link className="back-to-button" to="/child-accounts">
-        ⬅️ Back to Child accounts
+        ⬅️ Back to Child Accounts
       </Link>
-         <div className="delete-account-section">
-        <Link className="delete-account" to={`/delete-child-account/${childId}`}>
+      <div className="delete-account-section">
+        <Link
+          className="delete-account"
+          to={`/delete-child-account/${childId}`}
+        >
           Delete Account
         </Link>
-        </div>
-    </main>
+      </div>
+    </div>
   );
 }
