@@ -3,15 +3,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
   gap: 12px;
-  padding: 10px;
+  padding: 5px;
+  margin: 10px auto;
 }
 
 .feeling-friends-container .game-title {
   color: var(--orange);
  font-family: nunito, sans-serif;
-  font-size: 50px;
+  font-size: 40px;
   background: rgb(
     from var(--bg-lavender) r g b / 0.7
   ); /*Take the color from this variable, keep the Red, Green, and Blue parts the same, but set the transparency to 0.7...makes the button transparent*/
@@ -44,7 +44,7 @@
 
 .creature-image {
   width: clamp(150px, 40vw, 600px);
-  max-width: 600px;
+  max-width: 500px;
   height: auto;
   border-radius: 12px;
   display: block;

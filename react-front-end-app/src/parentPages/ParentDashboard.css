@@ -26,27 +26,12 @@
   border: 3px solid white;
   width: calc(50% - 0.5rem);
   box-sizing: border-box;
+  background-color: var(--text-dark);
 }
 
 .dashboard-button:hover {
   cursor: pointer;
   transform: scale(1.05);
-}
-
-.create-child-account-button {
-  background-color: var(--teal);
-}
-
-.view-child-account-button {
-  background-color: var(--purple);
-}
-
-.update-parent-account {
-  background-color: var(--yellow);
-}
-
-.update-password {
-  background-color: var(--pink);
 }
 
 .logout-section {
@@ -73,7 +58,7 @@
 }
 
 .delete-account-section {
-  margin-top: 200px;
+  margin-top: 120px;
 }
 .delete-account {
   background-color: red;
@@ -83,13 +68,12 @@
   border-radius: 10px;
   padding: 10px 10px;
   max-width: 200px;
-  margin-top: 10px;
   font-weight: 300;
   display: flex; /* use flex so text can be centered */
   align-items: center; /* centers vertically */
   justify-content: center; /* centers horizontally */
   border: 3px solid white;
-  margin: 20px auto;
+  margin: 10px auto;
 }
 
 .delete-account:hover {

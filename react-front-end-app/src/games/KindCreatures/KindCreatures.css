@@ -1,14 +1,14 @@
 .kind-creatures-container .game-title {
   color: var(--purple);
   font-family: nunito, sans-serif;
-  font-size: 50px;
+  font-size: 40px;
   background: rgb(
     from var(--bg-lavender) r g b / 0.7
   ); /*Take the color from this variable, keep the Red, Green, and Blue parts the same, but set the transparency to 0.7...makes the button transparent*/
   border: 4px solid var(--text-dark);
   border-radius: 30px;
   max-width: 400px;
-  margin: 10px auto; /* centers horizontally */
+  margin: 5px auto; /* centers horizontally */
   padding: 12px 12px;
   text-decoration: none;
   text-align: center;

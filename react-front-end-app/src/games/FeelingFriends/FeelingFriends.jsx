@@ -125,7 +125,7 @@ export default function FeelingFriends({ childName }) {
         onLoad={() => setImageLoaded(true)}/* event handler that fires once the image has fully downloaded and rendered */
         style={{ display: imageLoaded ? "block" : "none" }}/* hides the image while it's loading, shows it when it's ready. */
       />
-      {feedback && <div className="feedback">{feedback}</div>}{" "}
+      {feedback && <div className="feeling-friends-feedback">{feedback}</div>}{" "}
       {/*If feedback is truthy, show this*/}
       {feedback && (
         <button className="next-question-button" onClick={nextQuestion}>

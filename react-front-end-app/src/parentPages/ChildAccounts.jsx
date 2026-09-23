@@ -16,6 +16,7 @@ export default function ChildAccounts() {
           <LoadingSpinner />
         </div>
       )}
+      <h1>Child Accounts</h1>
       {loadError && <p>Error: {loadError}</p>}
       {childAccounts.map((child) => (
         <div className="child-account" key={child.childId}>

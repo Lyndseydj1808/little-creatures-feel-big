@@ -1,0 +1,31 @@
+footer {
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+  color: var(--text-dark);
+  background: rgb(from var(--bg-lavender) r g b / 0.7);
+  border-radius: 8px;
+  padding: 4px;
+  margin-top: auto; /* pushes itself to the bottom */
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+footer p {
+  flex: 1; /* each p takes equal share of space */
+  text-align: center;
+  font-size: 12px;
+}
+
+@media (max-width: 480px) {
+     footer {
+    position: fixed; /* sticks to bottom of viewport */
+    bottom: 0;
+    left: 0;
+  }
+}

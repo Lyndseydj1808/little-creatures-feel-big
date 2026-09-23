@@ -9,22 +9,17 @@ export default function Home() {
       <div className="mobile-image">
         <img src={mobileImage} alt="Little Creatures Feel Big! image with creatures and rainbow." />
       </div>
-      <div className="nav-buttons">
-        <Link className="button parent-dashboard" to="/parent-login">
+      <nav className="nav-buttons-landing-page">
+        <Link className="landing-page-button parent-dashboard" to="/parent-login">
           Parent Dashboard
         </Link>
-        <Link className="button lets-play" to="/choose-an-account">
+        <Link className="landing-page-button lets-play" to="/choose-an-account">
           Let's Play!
         </Link>
-        <Link className="button about" to="/about">
+        <Link className="landing-page-button about" to="/about">
           Learn About The Game
         </Link>
-      </div>
-      <footer>
-        <p>Designed for children ages 4-8</p>
-        <p>© 2026 Little Creatures Feel Big Created by Lyndsey Clarkson</p>
-        <p>Images generated using AI - Nano Banana 2</p>
-      </footer>
+      </nav>
     </main>
   );
 }

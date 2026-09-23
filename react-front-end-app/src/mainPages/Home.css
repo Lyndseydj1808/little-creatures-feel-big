@@ -13,7 +13,7 @@
   padding-bottom: 20px;
 }
 
-.nav-buttons {
+.nav-buttons-landing-page {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -21,10 +21,11 @@
   padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 24px);
 }
 
-.button {
+.landing-page-button {
   font-size: clamp(1.4rem, 2vw, 2rem);
   max-width: 300px;
   max-height: 200px;
+  min-height: 96px;
   text-decoration: none; /*removes the underline from the link*/
   color: white;
   border-radius: 16px;
@@ -54,36 +55,13 @@
   background-color: var(--green);
 }
 
-footer {
-  display: flex;
-  flex-direction: row;
-  font-size: 16px;
-  color: var(--text-dark);
-  background: rgb(from var(--bg-lavender) r g b / 0.7);
-  border-radius: 8px;
-  padding: 8px;
-  margin-top: auto; /* pushes itself to the bottom */
-  justify-content: center;
-  gap: 16px;
-  width: 100%;
-  box-sizing: border-box;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
-
-footer p {
-  flex: 1; /* each p takes equal share of space */
-  text-align: center;
-}
-
 /* Hides the mobile image on desktop */
 .mobile-image {
   display: none;
 }
 
 @media (max-width: 480px) {
-  .nav-buttons {
+  .nav-buttons-landing-page {
     flex-direction: column;/*switches the nav buttons to vertical for mobile*/
     align-items: center;
     gap: 12px;
@@ -100,12 +78,6 @@ footer p {
     gap: 30px;
     min-height: 100vh;
     padding-bottom: 80px;
-  }
-
-  footer {
-    position: fixed; /* sticks to bottom of viewport */
-    bottom: 0;
-    left: 0;
   }
 
   .mobile-image {

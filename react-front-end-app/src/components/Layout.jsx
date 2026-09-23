@@ -5,7 +5,7 @@ export default function Layout() {
   return (
     <>
       <NavBar />
-      <Outlet />
+      <Outlet /> {/*Outlet is needed to create the blank space for the actual page to render*/}
     </>
   );
 }
