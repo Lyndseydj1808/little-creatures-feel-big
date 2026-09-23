@@ -1,7 +1,4 @@
-import React from "react";
-import { useState } from "react";
-import HomeButton from "../components/HomeButton";
-import ParentDashboardButton from "../components/ParentDashboardButton";
+import React, { useState } from "react";
 import { createChild } from "../services/childService";
 import { Link } from "react-router-dom";
 import "./CreateChildAccount.css";
@@ -37,7 +34,7 @@ export default function CreateChildAccount() {
     }
   };
   return (
-    <main className="create-child-account-container">
+    <div className="create-child-account-container">
       {formValidationFeedback && (
         <div className="form-validation-feedback">{formValidationFeedback}</div>
       )}
@@ -46,7 +43,7 @@ export default function CreateChildAccount() {
           <div className="create-child-account">
             <header>
               <h1>Make A Child Account</h1>
-              <h2> You can make a separate account for each child.</h2>
+              <p> You can make a separate account for each child.</p>
             </header>
             <form className="form parent-form" onSubmit={handleSubmit}>
               <label htmlFor="childName">Child's Name</label>
@@ -100,6 +97,6 @@ export default function CreateChildAccount() {
       <Link className="back-to-button" to="/child-accounts">
         ⬅️ Back to Child Accounts
       </Link>
-    </main>
+    </div>
   );
 }

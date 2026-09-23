@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import BackButton from "../components/BackButton";
 import "./ParentCreateAccount.css";
 import { Link } from "react-router-dom";
 import ParentDashboardButton from "../components/ParentDashboardButton";
@@ -37,124 +36,126 @@ export default function ParentCreateAccount() {
     }
   };
   return (
-    <main className="parent-create-account-container">
-      <div className="welcome-parents">
-        <header>
-          <h1>Hi Parents!</h1>
-          <h2> Welcome to Little Creatures Feel Big!</h2>
-        </header>
-        <section className="game-description-section">
-          <p className="game-description">
-            I created this game to turn emotional learning into a joyful
-            adventure for your little ones. As a parent, I know that big
-            emotions can feel overwhelming for children. Research shows that
-            developing emotional intelligence at an early age is a superpower.
-            It helps kids build resilience, empathy, and better communication
-            skills.
-            <br /> In this world of mini-games, your child will:
-          </p>
+    <div className="parent-create-account-container">
+      <header>
+        <h1>Hi Parents!</h1>
+        <p className="game-description">
+          {" "}
+          Welcome to Little Creatures Feel Big!
+        </p>
+      </header>
+      <section className="game-description-section">
+        <p className="game-description">
+          I created this game to turn emotional learning into a joyful adventure
+          for your little ones. As a parent, I know that big emotions can feel
+          overwhelming for children. Research shows that developing emotional
+          intelligence at an early age is a superpower. It helps kids build
+          resilience, empathy, and better communication skills.
+        </p>
+        <p className="game-description">
+          In this world of mini-games, your child will:
+        </p>
 
-          <ul className="game-list">
-            <li>
-              ✨ Meet the Creatures: Friendly characters who experience the same
-              highs and lows kids do.
-            </li>
-            <li>
-              ✨ Name That Feeling: Practice identifying emotions through play.
-            </li>
-            <li>
-              ✨ Build a Toolkit: Practice self-kindness and body confidence in
-              a safe, stress-free environment.
-            </li>
-          </ul>
-          <p className="game-description">
-            Let's get started! Please create an account to add profiles for your
-            children to play with. You can also choose to set time limits for
-            your children.
-          </p>
-        </section>
-        <section className="parent-create-account">
-          {/*form for parents to create account */}
-          {formValidationFeedback && (
-            <div className="form-validation-feedback">
-              {formValidationFeedback}
-            </div>
-          )}
-          {!formSubmit && (
-            <form className="create-account-form" onSubmit={handleSubmit}>
-              <label htmlFor="email">
-                Email Address <span className="required-asterisk">*</span>
-              </label>{" "}
-              <input
-                className="create-account-form-input"
-                type="email"
-                id="email"
-                autoComplete="email"
-                required
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-                placeholder="example@email.com"
-              />
-              <label htmlFor="firstName">
-                First Name <span className="required-asterisk">*</span>
-              </label>
-              <input
-                className="create-account-form-input"
-                type="text"
-                id="firstName"
-                required
-                autoComplete="given-name"
-                value={firstName}
-                onChange={(event) => setFirstName(event.target.value)}
-                placeholder="Enter first name"
-              />
-              <label htmlFor="lastName">
-                Last Name <span className="required-asterisk">*</span>
-              </label>
-              <input
-                className="create-account-form-input"
-                type="text"
-                id="lastName"
-                required
-                autoComplete="family-name"
-                value={lastName}
-                onChange={(event) => setLastName(event.target.value)}
-                placeholder="Enter last name"
-              />
-              <label htmlFor="password">
-                Password <span className="required-asterisk">*</span>
-              </label>
-              <input
-                className="create-account-form-input"
-                type="password"
-                id="password"
-                autoComplete="new-password"
-                required
-                value={password}
-                onChange={(event) => setPassword(event.target.value)}
-                placeholder="Enter password"
-              />
-              <p className="required-note">* = required field</p>
-              <button className="create-account-button" type="submit">
-                Create Account
-              </button>
-            </form>
-          )}
-        </section>
-
-        {formSubmit && (
-          <section className="form-feedback-section">
-            <div className="form-submit-feedback">{`Account created successfully!`}</div>
-            <Link className="login" to="/parent-login">
-              Login
-            </Link>
-          </section>
+        <ul className="game-list">
+          <li>
+            ✨ Meet the Creatures: Friendly characters who experience the same
+            highs and lows kids do.
+          </li>
+          <li>
+            ✨ Name That Feeling: Practice identifying emotions through play.
+          </li>
+          <li>
+            ✨ Build a Toolkit: Practice self-kindness and body confidence in a
+            safe, stress-free environment.
+          </li>
+        </ul>
+        <p className="game-description">
+          Let's get started! Please create an account to add profiles for your
+          children to play with.
+        </p>
+      </section>
+      <section className="parent-create-account">
+        {/*form for parents to create account */}
+        {formValidationFeedback && (
+          <div className="form-validation-feedback">
+            {formValidationFeedback}
+          </div>
         )}
-        <div className="button-row">
-          <HomeButton />
-          <ParentDashboardButton />
-        </div>
+        {!formSubmit && (
+          <form className="create-account-form" onSubmit={handleSubmit}>
+            <label htmlFor="email">
+              Email Address <span className="required-asterisk">*</span>
+            </label>
+            <input
+              className="create-account-form-input"
+              type="email"
+              id="email"
+              autoComplete="email"
+              required
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              placeholder="example@email.com"
+            />
+            <label htmlFor="firstName">
+              First Name <span className="required-asterisk">*</span>
+            </label>
+            <input
+              className="create-account-form-input"
+              type="text"
+              id="firstName"
+              required
+              autoComplete="given-name"
+              value={firstName}
+              onChange={(event) => setFirstName(event.target.value)}
+              placeholder="Enter first name"
+            />
+            <label htmlFor="lastName">
+              Last Name <span className="required-asterisk">*</span>
+            </label>
+            <input
+              className="create-account-form-input"
+              type="text"
+              id="lastName"
+              required
+              autoComplete="family-name"
+              value={lastName}
+              onChange={(event) => setLastName(event.target.value)}
+              placeholder="Enter last name"
+            />
+            <label htmlFor="password">
+              Password <span className="required-asterisk">*</span>
+            </label>
+            <input
+              className="create-account-form-input"
+              type="password"
+              id="password"
+              autoComplete="new-password"
+              required
+              value={password}
+              minLength={8}
+              onChange={(event) => setPassword(event.target.value)}
+              placeholder="Enter password"
+            />
+            <p className="required-note">* = required field</p>
+            <button className="create-account-button" type="submit">
+              Create Account
+            </button>
+          </form>
+        )}
+      </section>
+
+      {formSubmit && (
+        <section className="form-feedback-section">
+          <div className="form-submit-feedback">Account created successfully!</div>
+          <Link className="login" to="/parent-login">
+            Login
+          </Link>
+        </section>
+      )}
+      <div className="button-row">
+        <HomeButton />
+        <ParentDashboardButton />
       </div>
-    </main>
+    </div>
   );
 }

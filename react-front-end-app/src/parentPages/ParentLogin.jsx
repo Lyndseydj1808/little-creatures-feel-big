@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
-import BackButton from "../components/BackButton";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { loginParent } from "../services/parentService";
+import { loginParent, getParent } from "../services/parentService";
 import "./ParentLogin.css";
-import { getParent } from "../services/parentService";
 import LoadingSpinner from "../components/LoadingSpinner";
 import AuthContext from "../context/AuthContext";
 import HomeButton from "../components/HomeButton";
@@ -61,11 +59,11 @@ export default function ParentLogin() {
   }
 
   return (
-    <main className="parent-login-container">
+    <div className="parent-login-container">
       <section className="login-form-section">
         {feedback && <div className="login-feedback">{feedback}</div>}
         <div className="login-section">
-          <h1>Please Login</h1>
+          <h1>Please Log In</h1>
           <form className="form login-form" onSubmit={handleSubmit}>
             <label htmlFor="email">Email</label>
             <input
@@ -73,6 +71,7 @@ export default function ParentLogin() {
               type="email"
               id="email"
               value={email}
+              autoComplete="email"
               onChange={(event) => setEmail(event.target.value)}
               placeholder="name@example.com"
             />
@@ -80,6 +79,7 @@ export default function ParentLogin() {
             <input
               className="form-input login-form-input"
               type="password"
+              autoComplete="current-password"
               id="password"
               value={password}
               onChange={(event) => setPassword(event.target.value)}
@@ -95,6 +95,6 @@ export default function ParentLogin() {
         </div>
       </section>
       <HomeButton />
-    </main>
+    </div>
   );
 }
