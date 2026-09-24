@@ -1,18 +1,17 @@
 #  Little Creatures Feel Big
 
-> A full-stack emotional intelligence app for young children, built with React and Spring Boot.
+ A full-stack emotional intelligence app for young children, built with React, Vite, JavaScript, Spring Boot and Java.
 
 ---
 
 ## About the Project
 
-Little Creatures Feel Big is an educational and enrichment app for children from preschool through early elementary, made up of mini-games that help kids practice affirmations, name their feelings, and connect with their families. Kids help friendly creatures feel amazing by choosing kind affirmations, match emotions to expressive faces, and play a family conversation game called "Little and Big Talk." Every affirmation and feeling is read aloud in a real, recorded human voice, so pre-readers can play independently. Parents create an account, manage child profiles, and can choose who is playing, or jump right in with guest mode.
+Little Creatures Feel Big is an educational and enrichment app for children from preschool through early elementary, made up of mini-games that help kids practice affirmations and name their feelings. Kids help friendly creatures feel amazing by choosing kind affirmations and match emotions to expressive faces. Every affirmation and feeling is read aloud in a real, recorded human voice, so pre-readers can play independently. Parents create an account, manage child profiles, and can choose who is playing, or jump right in with guest mode.
 
 ## Features
 
 - **Kind Creatures:** help a creature feel amazing by choosing the right affirmation, with voice audio for every option
 - **Feeling Friends:** explore and identify feelings using emojis paired with recorded audio
-- **Little and Big Talk:** a family mini-game with 28 curated conversation questions, shuffled fresh on every replay
 - **Parent accounts:** secure registration and login with BCrypt password hashing and session-based authentication
 - **Child profiles:** parents can create, view, update, and delete child profiles
 - **Guest mode:** try the games without creating an account
@@ -27,7 +26,6 @@ Little Creatures Feel Big is an educational and enrichment app for children from
 | Data | Spring Data JPA, MySQL |
 | Security | Spring Security, BCrypt |
 | Audio | Recorded and edited in Audacity |
-| Deployment | Netlify (frontend) |
 | Tools | VS Code, Git, GitHub, IntelliJ |
 
 ## Installation and Local Setup
@@ -101,7 +99,7 @@ Open the link Vite prints in your terminal (usually `http://localhost:5173`) and
 
 [View the wireframes in Figma](https://www.figma.com/design/2f5I48JQLq5B0xIryxQlaY/Unit-1-project-wireframes--Unit-2-?node-id=0-1&t=YNpf0iBwOadqCVOP-1)
 
-## ER Diagram
+## ER Diagram 
 
 A **Parent** can have many **Children** (one-to-many). Each child belongs to exactly one parent.
 
@@ -111,11 +109,11 @@ A **Parent** can have many **Children** (one-to-many). Each child belongs to exa
 
 **Known issues**
 
-- The backend is only running locally right now. The frontend is deployed on Netlify, but the full app (frontend and backend together) has not been deployed yet.
+- The project is only running locally right now.
 
 **Planned features**
 
-- Deploy the Spring Boot backend so the full app is live online
+- Deploy so the full app is live online
 - Incorporate additional games
 - Implement a reward system for children
 - Implement a timer for parents to set time-limits
