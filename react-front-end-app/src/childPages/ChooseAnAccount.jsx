@@ -9,28 +9,28 @@ export default function ChooseAnAccount() {
 
   if (!loadError) {
     return (
-        <div className="parent-logged-in">
-          {loading && (
-            <div className="loading-placeholder">
-              <LoadingSpinner />
-            </div>
-          )}
-          {loadError && <p>Error: {loadError}</p>}
-          <h1>Who is playing?</h1>
-          {childAccounts.map((child) => (
-            <Link
-              className="child-button-to-main-games"
-              to={`/mini-games/${child.childId}`}
-              key={child.childId}
-            >
-               {child.name}
-            </Link>
-          ))}
-          <span className="or-divider">OR</span>
-          <Link className="guest" to="/mini-games">
-            ▶️ Play Now as a guest!
+      <div className="parent-logged-in">
+        {loading && (
+          <div className="loading-placeholder">
+            <LoadingSpinner />
+          </div>
+        )}
+        {loadError && <p>Error: {loadError}</p>}
+        <h1>Who is playing?</h1>
+        {childAccounts.map((child) => (
+          <Link
+            className="child-button-to-main-games"
+            to={`/mini-games/${child.childId}`}
+            key={child.childId}
+          >
+            {child.name}
           </Link>
-        </div>
+        ))}
+        <span className="or-divider">OR</span>
+        <Link className="guest" to="/mini-games">
+          ▶️ Play Now as a guest!
+        </Link>
+      </div>
     );
   }
 

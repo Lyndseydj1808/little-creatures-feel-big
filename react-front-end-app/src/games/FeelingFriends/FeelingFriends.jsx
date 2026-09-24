@@ -1,4 +1,4 @@
-import React, {useState } from "react";
+import React, { useState } from "react";
 import BackButton from "../../components/BackButton";
 import { feelingFriendsQuestions } from "./feelingFriendsQuestions";
 import "./FeelingFriends.css";
@@ -13,6 +13,7 @@ import scaredAudio from "../../assets/audio/feelings/scared.mp3";
 import excitedAudio from "../../assets/audio/feelings/excited.mp3";
 import disappointedAudio from "../../assets/audio/feelings/disappointed.mp3";
 import AudioButton from "../../components/AudioButton";
+import useCurrentChild from "../../hooks/useCurrentChild.js";
 
 const feelingEmojis = {
   Happy: { emoji: "😊", audio: happyAudio },
@@ -23,7 +24,7 @@ const feelingEmojis = {
   Disappointed: { emoji: "😞", audio: disappointedAudio },
 };
 
-export default function FeelingFriends({ childName }) {
+export default function FeelingFriends() {
   /*passed childName as a prop to this function to incorporate the child’s name from the form input into the end game message */
   const [score, setScore] = useState(0); /*state to track score*/
   const [currentIndex, setCurrentIndex] =
@@ -34,6 +35,8 @@ export default function FeelingFriends({ childName }) {
     useState(
       false,
     ); /*state to track image loaded status so loading spinner can show if image not laoded */
+
+  const childName = useCurrentChild()?.name;//gets the child name
 
   //Initializes state with a shuffled version of the questions array
   const [questions, setQuestions] = useState(() =>

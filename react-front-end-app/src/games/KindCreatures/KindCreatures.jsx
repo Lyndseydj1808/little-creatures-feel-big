@@ -7,8 +7,9 @@ import LoadingSpinner from "../../components/LoadingSpinner";
 import MainGamesButton from "../../components/MainGamesButton";
 import shuffleArray from "../../utils/shuffleArray";
 import AudioButton from "../../components/AudioButton";
+import useCurrentChild from "../../hooks/useCurrentChild";
 
-export default function KindCreatures({ childName }) {
+export default function KindCreatures() {
   /*pass childName prop in */
   const [selection, setSelection] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -19,6 +20,7 @@ export default function KindCreatures({ childName }) {
 
   const currentCreature = shuffledCreatures[currentIndex];
 
+  const childName = useCurrentChild()?.name;
   //fallback protection in case of empty array
   if(shuffledCreatures.length === 0) {
         return <div className="feeling-friends-container"><LoadingSpinner /></div>;

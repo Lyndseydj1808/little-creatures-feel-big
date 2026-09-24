@@ -24,6 +24,7 @@ export default function AuthProvider({ children }) {
 
   // the actual tower: broadcasts both the current value AND the ability to update it
   // any component wrapped inside this can tune in with useContext(AuthContext)
+  //this is implemented in App.jsx....so 'children' is all routes in between the AuthContext.Provider....so all pages first ask "who's logged in right now?"
   return (
     <AuthContext.Provider value={{ authValue, setAuthValue }}>
       {children}
