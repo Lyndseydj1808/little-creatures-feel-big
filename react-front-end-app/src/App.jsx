@@ -20,66 +20,64 @@ import DeleteParent from "./parentPages/DeleteParent.jsx";
 import DeleteChild from "./parentPages/DeleteChild.jsx";
 import Footer from "./components/Footer.jsx";
 
-
 function App() {
-  const [childName, setChildName] = useState("");
-  const [childAge, setChildAge] =
-    useState(
-      "",
-    ); /*havent incorporated age anywhere yet but hope to in the future */
-
-  const onUpdateChild = (name, age) => {
-    setChildName(name);
-    setChildAge(age);
-  };
   return (
     <>
-    <AuthProvider>
-      <Routes>
-        <Route element={<Footer />}>
-        <Route path="/" element={<Home />} />
-        {/*Adds the nav bar to all pages (except home)*/}
-        <Route element={<Layout />}>
-          <Route path="/parent-login" element={<ParentLogin />} />
-          <Route
-            path="/parent-create-account"
-            element={<ParentCreateAccount />}
-          />
-          <Route path="/parent-dashboard" element={<ParentDashboard />} />
-          <Route path="/update-parent-account" element={<ParentUpdateAccount />} />
-          <Route path="/update-password" element={<ParentUpdatePassword />} />
-          <Route path="/delete-parent-account" element={<DeleteParent />} />
-          <Route path="/update-child-account/:childId" element={<UpdateChildAccount />} />
-          <Route path="/delete-child-account/:childId" element={<DeleteChild />} />
-          <Route
-            path="/create-child-account"
-            element={
-              <CreateChildAccount
+      <AuthProvider>
+        {/*all files between AuthProvider are included as 'children'*/}
+        <Routes>
+          <Route element={<Footer />}>
+            <Route path="/" element={<Home />} />
+            {/*Adds the nav bar to all pages (except home)*/}
+            <Route element={<Layout />}>
+              <Route path="/parent-login" element={<ParentLogin />} />
+              <Route
+                path="/parent-create-account"
+                element={<ParentCreateAccount />}
               />
-            }
-          />
-          <Route path="/child-accounts" element={<ChildAccounts />} />
-          <Route path="/choose-an-account" element={<ChooseAnAccount />} />
-          <Route
-            path="/mini-games"
-            element={<MainGames childName={childName} />}
-          />
-          <Route
-            path="/mini-games/:childId"
-            element={<MainGames childName={childName} />}
-          />
-          <Route
-            path="/games/feeling-friends"
-            element={<FeelingFriends childName={childName} />}
-          />
-          <Route
-            path="/games/kind-creatures"
-            element={<KindCreatures childName={childName} />}
-          />
-          <Route path="/about" element={<About childName={childName} />} />
-        </Route>
-        </Route>
-      </Routes>
+              <Route path="/parent-dashboard" element={<ParentDashboard />} />
+              <Route
+                path="/update-parent-account"
+                element={<ParentUpdateAccount />}
+              />
+              <Route
+                path="/update-password"
+                element={<ParentUpdatePassword />}
+              />
+              <Route path="/delete-parent-account" element={<DeleteParent />} />
+              <Route
+                path="/update-child-account/:childId"
+                element={<UpdateChildAccount />}
+              />
+              <Route
+                path="/delete-child-account/:childId"
+                element={<DeleteChild />}
+              />
+              <Route
+                path="/create-child-account"
+                element={<CreateChildAccount />}
+              />
+              <Route path="/child-accounts" element={<ChildAccounts />} />
+              <Route path="/choose-an-account" element={<ChooseAnAccount />} />
+              <Route path="/mini-games" element={<MainGames />} />
+              <Route path="/mini-games/:childId" element={<MainGames />} />
+              <Route
+                path="/games/feeling-friends"
+                element={<FeelingFriends />}
+              />
+              <Route
+                path="/games/feeling-friends/:childId"
+                element={<FeelingFriends />}
+              />
+              <Route path="/games/kind-creatures" element={<KindCreatures />} />
+              <Route
+                path="/games/kind-creatures/:childId"
+                element={<KindCreatures />}
+              />
+              <Route path="/about" element={<About />} />
+            </Route>
+          </Route>
+        </Routes>
       </AuthProvider>
     </>
   );

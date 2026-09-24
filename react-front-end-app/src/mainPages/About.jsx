@@ -10,15 +10,14 @@ import llamaHappy from "../assets/images/creatures/llama-happy.png";
 import dragonHappy from "../assets/images/creatures/dragon-happy.png";
 import { FaGithub, FaLinkedin, FaEnvelope, FaLaptopCode } from "react-icons/fa";
 
-export default function About({ childName }) {
+export default function About() {
   return (
     <div className="about-container">
       <header className="main-header">
         <h1 className="about-the-game">About the game!</h1>
         <p className="about-description">
-          {childName ? `Hi ${childName}!` : "Hi friend!"} Welcome to Little
-          Creatures Feel Big! We hope you have so much fun playing with us! We
-          love learning about our big feelings in a fun way!{" "}
+          Welcome to Little Creatures Feel Big! We hope you have so much fun
+          playing with us! We love learning about our big feelings in a fun way!
         </p>
       </header>
       <ul className="about-list">
@@ -100,8 +99,8 @@ export default function About({ childName }) {
               </td>
               <td className="creature-about">
                 Danny loves toasting marshmallows with their gentle fire breath.
-                When they feel grumpy, they breathe out slowly, like blowing out a
-                birthday candle.
+                When they feel grumpy, they breathe out slowly, like blowing out
+                a birthday candle.
               </td>
             </tr>
             <tr>
