@@ -2,8 +2,6 @@
 
 > A full-stack emotional intelligence app for young children, built with React and Spring Boot.
 
-**[🔗 Live Frontend Demo](https://littlecreaturesfeelbig.netlify.app/)** | **[Backend Repo](https://github.com/Lyndseydj1808/little-creatures-backend.git)** | **[Frontend Repo](https://github.com/Lyndseydj1808/unit-1-project-Lyndsey-C)**
-
 ---
 
 ## About the Project
