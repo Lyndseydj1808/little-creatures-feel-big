@@ -5,7 +5,7 @@ import useChildAccounts from "../hooks/useChildAccounts";
 import "../childPages/ChooseAnAccount.css";
 
 export default function ChooseAnAccount() {
-  const { childAccounts, loading, loadError } = useChildAccounts();
+  const { childAccounts, loading, loadError } = useChildAccounts();//custom hook
 
   if (!loadError) {
     return (
@@ -17,7 +17,7 @@ export default function ChooseAnAccount() {
         )}
         {loadError && <p>Error: {loadError}</p>}
         <h1>Who is playing?</h1>
-        {childAccounts.map((child) => (
+        {childAccounts.map((child) => (//loops through child accounts to display, when clicked they navigate to the mini-games page
           <Link
             className="child-button-to-main-games"
             to={`/mini-games/${child.childId}`}
@@ -26,7 +26,8 @@ export default function ChooseAnAccount() {
             {child.name}
           </Link>
         ))}
-        <span className="or-divider">OR</span>
+        {/* or can always play as guest */}
+        <span className="or-divider">OR</span> 
         <Link className="guest" to="/mini-games">
           ▶️ Play Now as a guest!
         </Link>
