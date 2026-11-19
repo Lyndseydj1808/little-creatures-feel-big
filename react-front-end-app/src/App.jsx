@@ -19,6 +19,7 @@ import UpdateChildAccount from "./parentPages/UpdateChildAccount.jsx";
 import DeleteParent from "./parentPages/DeleteParent.jsx";
 import DeleteChild from "./parentPages/DeleteChild.jsx";
 import Footer from "./components/Footer.jsx";
+import RequirePin from "./components/RequirePin.jsx";
 
 function App() {
   return (
@@ -35,29 +36,32 @@ function App() {
                 path="/parent-create-account"
                 element={<ParentCreateAccount />}
               />
-              <Route path="/parent-dashboard" element={<ParentDashboard />} />
-              <Route
-                path="/update-parent-account"
-                element={<ParentUpdateAccount />}
-              />
-              <Route
-                path="/update-password"
-                element={<ParentUpdatePassword />}
-              />
-              <Route path="/delete-parent-account" element={<DeleteParent />} />
-              <Route
-                path="/update-child-account/:childId"
-                element={<UpdateChildAccount />}
-              />
-              <Route
-                path="/delete-child-account/:childId"
-                element={<DeleteChild />}
-              />
-              <Route
-                path="/create-child-account"
-                element={<CreateChildAccount />}
-              />
-              <Route path="/child-accounts" element={<ChildAccounts />} />
+              {/*Every route inside here needs the parent PIN first*/}
+              <Route element={<RequirePin />}>
+                <Route path="/parent-dashboard" element={<ParentDashboard />} />
+                <Route
+                  path="/update-parent-account"
+                  element={<ParentUpdateAccount />}
+                />
+                <Route
+                  path="/update-password"
+                  element={<ParentUpdatePassword />}
+                />
+                <Route path="/delete-parent-account" element={<DeleteParent />} />
+                <Route
+                  path="/update-child-account/:childId"
+                  element={<UpdateChildAccount />}
+                />
+                <Route
+                  path="/delete-child-account/:childId"
+                  element={<DeleteChild />}
+                />
+                <Route
+                  path="/create-child-account"
+                  element={<CreateChildAccount />}
+                />
+                <Route path="/child-accounts" element={<ChildAccounts />} />
+              </Route>
               <Route path="/choose-an-account" element={<ChooseAnAccount />} />
               <Route path="/mini-games" element={<MainGames />} />
               <Route path="/mini-games/:childId" element={<MainGames />} />

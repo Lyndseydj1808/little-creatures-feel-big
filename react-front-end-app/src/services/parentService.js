@@ -112,3 +112,48 @@ export async function getParent() {
 
 }
 
+// ---------- Parental PIN ----------
+
+// Shared helper: sends the request, and if the server says no, throws an error that
+// carries the HTTP status code (403 = wrong, 429 = locked out, 401 = not logged in)
+// so the screen can show the right message.
+async function pinRequest(path, method, body) {
+  const response = await fetch(`${API_URL}/parent/${path}`, {
+    method,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include", //sends the session cookie
+    body: body ? JSON.stringify(body) : undefined,
+  });
+
+  if (!response.ok) {
+    const error = new Error(`PIN request failed with status ${response.status}`);
+    error.status = response.status;
+    throw error;
+  }
+
+  return response;
+}
+
+//asks the server: does this parent have a PIN, and is the dashboard unlocked right now?
+export async function getPinStatus() {
+  const response = await pinRequest("pin/status", "GET");
+  return response.json(); // { hasPin: true/false, unlocked: true/false }
+}
+
+export async function setParentPin(pin) {
+  await pinRequest("pin", "POST", { pin });
+}
+
+export async function verifyParentPin(pin) {
+  await pinRequest("pin/verify", "POST", { pin });
+}
+
+export async function resetParentPin(password, newPin) {
+  await pinRequest("pin/reset", "POST", { password, newPin });
+}
+
+export async function lockParentPin() {
+  await pinRequest("pin/lock", "POST");
+}
