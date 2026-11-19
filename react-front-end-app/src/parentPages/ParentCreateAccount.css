@@ -8,6 +8,7 @@
   padding: 20px;
   width: 100%;
   max-width: 800px;
+  margin: 0 auto; /* centers the container itself on the page */
 }
 
 .parent-create-account-container h1 {

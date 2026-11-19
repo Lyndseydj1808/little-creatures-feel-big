@@ -2,6 +2,7 @@ package com.lyndsey.littlecreatures.little_creatures_backend.model;
 
 import jakarta.persistence.*;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +16,11 @@ public class Parent {
     private String pwHash;
     private String firstName;
     private String lastName;
+
+    // Parental PIN: stored as a BCrypt hash (never the real digits), plus lockout tracking
+    private String pinHash;
+    private int failedPinAttempts;
+    private LocalDateTime pinLockedUntil;
 
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
@@ -67,6 +73,38 @@ public class Parent {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    // ---- Parental PIN ----
+    public boolean hasPin() {
+        return pinHash != null;
+    }
+
+    public void setPin(String pin) {
+        this.pinHash = encoder.encode(pin);
+        clearPinFailures();
+    }
+
+    public boolean isMatchingPin(String pin) {
+        return pinHash != null && encoder.matches(pin, pinHash);
+    }
+
+    public boolean isPinLocked() {
+        return pinLockedUntil != null && LocalDateTime.now().isBefore(pinLockedUntil);
+    }
+
+    // Counts a wrong guess. After maxAttempts wrong guesses in a row, PIN entry is locked for lockMinutes.
+    public void recordFailedPinAttempt(int maxAttempts, int lockMinutes) {
+        failedPinAttempts++;
+        if (failedPinAttempts >= maxAttempts) {
+            pinLockedUntil = LocalDateTime.now().plusMinutes(lockMinutes);
+            failedPinAttempts = 0;
+        }
+    }
+
+    public void clearPinFailures() {
+        failedPinAttempts = 0;
+        pinLockedUntil = null;
     }
 
     public List<Child> getChildList() {

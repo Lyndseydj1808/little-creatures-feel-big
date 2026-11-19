@@ -6,7 +6,7 @@
   gap: 50px;
   background-image: url("../assets/images/lcfb-background-5.png");
   background-size: cover;
-  background-position: center;
+  background-position: center top; /* anchor to the top so the title never gets cropped */
   background-repeat: no-repeat;
   min-height: 100vh;
   position: relative;
